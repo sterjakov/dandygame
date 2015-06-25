@@ -1,0 +1,40 @@
+= link_to new_admin_day_attachment_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.day_attachment.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.day_attachment.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th
+          = t 'activerecord.attributes.day_id'
+        %th
+          = t 'activerecord.attributes.attachment'
+        %th.actions
+
+    %tbody
+      - @day_attachments.each do |day_attachment|
+        %tr
+          
+          %td= link_to day_attachment.day_id, [:admin,day_attachment]
+          
+          
+          %td= day_attachment.attachment
+          
+          %td
+            = link_to edit_admin_day_attachment_path(day_attachment), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin,day_attachment], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-default btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @day_attachments, renderer: BootstrapPagination::Rails, class: 'no-margin'

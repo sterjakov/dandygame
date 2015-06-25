@@ -1,0 +1,17 @@
+- if controller_name == 'trainings'
+
+  #parallax
+
+    = content_for :head do
+
+      = @training.css.html_safe
+
+    = @training.html.html_safe
+
+- if controller_name == 'days'
+
+  = content_for :head do
+
+    = @training.css.html_safe
+
+

@@ -1,0 +1,7 @@
+@import "compass/presets";
+
+.CodeMirror {
+  padding: 10px;
+  @include border-radius($radius-max)
+}
+

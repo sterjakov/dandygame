@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+
+
+    = csrf_meta_tags
+
+    = render partial: 'block/seo'
+
+    = content_for :head
+
+    - unless device_type == :desktop
+      %meta{ name: 'viewport', content: 'width=device-width; maximum-scale=1; minimum-scale=1; user-scalable=0; initial-scale = 1.0;'}
+
+    = include_gon
+    = stylesheet_link_tag "front", media: "all"
+    = stylesheet_link_tag "all", media: "all"
+    = javascript_include_tag 'front'
+    = javascript_include_tag '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true
+    = javascript_include_tag 'http://vkontakte.ru/js/api/openapi.js'
+
+
+    = favicon_link_tag 'favicon.png', type: 'image/png'
+
+  %body{ class: body_class_name }
+
+    = render partial: 'block/yandex_metrika'
+    = render partial: 'block/google_analytics'
+
+    - if can? :manage, :admin_menu
+
+      = render partial: 'admin/block/admin_bar'
+
+    #wrapper
+      .offset
+
+        = render partial: "/block/header_menu"
+
+      = yield
+
+      .clear
+      #footer
+        .offset
+
+          .left
+            = link_to 'Обратная связь', '/contact', class: (@contact) ? 'selected' : nil
+
+          .right
+            %p.author
+              Разработка проекта –
+              %a{ rel: 'nofollow', href: 'http://vk.com/sterjakov', target: '_blank'}
+                Стержаков Игорь
+

@@ -1,0 +1,28 @@
+<%= @hello %>
+
+<% @mytrainings.each do |mytraining| %>
+
+<% url = url_for( controller: 'days', action: 'show', training_id: mytraining.training_id, id: mytraining.day_number, only_path: false ) %>
+<%= "#{mytraining.training.name}: День #{mytraining.day_number} стал доступным!" %>
+
+<%= url %>
+
+<% end %>
+
+Желаем хорошего дня!
+
+-----------------------------------------
+
+Кстати! У тебя есть вопросы, какие либо
+замечания или предложения по этому проекту?
+Ты всегда можешь написать нам о них в ответ
+на это письмо!
+
+-----------------------------------------
+Если хочешь скрыть уведомления о каком либо
+из тренингов ты можешь сделать это здесь:
+<%= url_for(controller: 'my_trainings', action: 'index', only_path: false) %>
+
+Или можешь отключить все уведомления здесь:
+<%= url_for(controller: 'settings', action: 'notify', only_path: false) %>
+

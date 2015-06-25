@@ -1,0 +1,44 @@
+%a{ name: "get_access_now" }
+= form_for @user, url: { controller: "auth", action: 'signup' } do |f|
+
+  = render partial: 'block/form_errors', locals: { model: @user }
+
+  .row
+    = f.label :email, 'Введи свой e-mail'
+    = f.text_field :email
+
+  %br
+
+  .row
+    = f.label :password, 'Придумай пароль'
+    = f.password_field :password
+
+  %br
+
+  .row
+    = f.label :password_confirmation, 'Повтори пароль'
+    = f.password_field :password_confirmation
+
+  %br
+
+  =# render partial: 'block/form_captcha', locals: { f: f }
+
+  .row.actions
+    = f.hidden_field :training_id, value: @training[:id]
+    = f.hidden_field :vkontakte_id, value: ''
+    = f.submit '', class: 'hidden'
+
+
+    %a.button.corner.big.orange.all-width{ onclick: 'document.getElementsByTagName("form")[0].submit();' }
+      = "Выслать доступ №#{10000 - 1843 - @people_count}"
+
+
+  .space
+
+
+
+
+
+
+
+

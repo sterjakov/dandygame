@@ -1,0 +1,65 @@
+#comments
+
+  .content
+
+    .offset
+
+      %h2 Отзывы (339)
+
+      .comments-block
+
+        .offsetter-width
+
+          %a.anchor{ name: "feedback-id_#" }
+          .comment
+            .header
+              %img
+              %a.name
+                Sterjakov
+              %p.date
+                сегодня в 21:00
+              -#.line
+              -#%a.answer{ href: '#answer' }
+                Ответить
+            .description
+              %p
+                В зависимости от используемого в вашем проекте программного обеспечения вам нужно выбрать ту систему управления базами данных, которая будет работать с вашим проектом. Если вы не уверены, выбирайте MySQL.
+            %hr
+
+          - if flash[:feedback]
+            %input#feedback-id.hidden{ value: flash[:feedback] }
+
+          %a.anchor{ name: "feedback-id_#" }
+          .comment
+            .header
+              %img
+              %a.name
+                Sterjakov
+              %p.date
+                сегодня в 21:00
+              -#.line
+            -#%a.answer{ href: '#answer' }
+                Ответить
+            .description
+              %p
+                В зависимости от используемого в вашем проекте программного обеспечения вам нужно выбрать ту систему управления базами данных, которая будет работать с вашим проектом. Если вы не уверены, выбирайте MySQL.
+            %hr
+
+          %a.anchor{ name: "feedback-id_#" }
+          .comment
+            .header
+              %img
+              %a.name
+                Sterjakov
+              %p.date
+                сегодня в 21:00
+              -#.line
+            -#%a.answer{ href: '#answer' }
+                Ответить
+            .description
+              %p
+                В зависимости от используемого в вашем проекте программного обеспечения вам нужно выбрать ту систему управления базами данных, которая будет работать с вашим проектом. Если вы не уверены, выбирайте MySQL.
+
+          .space
+
+.space

@@ -1,0 +1,39 @@
+= link_to new_admin_category_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.category.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.category.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th
+          = t 'activerecord.attributes.name'
+        %th
+          = t 'activerecord.attributes.alt_name'
+        %th.actions{ width: '300'}
+
+    %tbody
+      - @admin_categories.each do |category|
+        %tr
+          
+          %td= link_to category.name, [:admin, category]
+
+          %td= category.alt_name
+          
+          %td
+            = link_to edit_admin_category_path(category), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin, category], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @admin_categories, renderer: BootstrapPagination::Rails, class: 'no-margin'

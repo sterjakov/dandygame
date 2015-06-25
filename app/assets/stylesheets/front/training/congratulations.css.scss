@@ -1,0 +1,19 @@
+@import "../compass/presets";
+
+#congratulations {
+
+  display: block;
+  padding-top: 10px;
+
+  .offset {
+    @include filter-gradient(#ffea00, #ff7200);
+    @include background-image(linear-gradient( #ffea00, #ff7200 ));
+
+    h2 {
+      color: #fff;
+    }
+
+  }
+
+
+}

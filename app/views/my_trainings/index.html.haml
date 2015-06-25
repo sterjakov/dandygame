@@ -1,0 +1,187 @@
+.menu-space-min
+.offset
+
+  #my_trainings
+
+    .catalog
+
+      .section
+
+        %table.head
+          %tr
+            %td.left
+              %hr
+            %td.head
+              %p
+                Текущие:
+            %td.right
+              %hr
+
+
+        - if @mytraining_active.empty?
+
+          .place-nothing
+            .offset
+              %p
+                Таких пока нет.
+
+        - else
+
+          - @mytraining_active.each do |mytraining|
+
+            :css
+
+              .place .#{mytraining.training[:alt_name]} .logo .icon {
+                background-image: url(/trainings/#{mytraining.training[:alt_name]}/logo.png);
+              }
+
+              @media (-webkit-min-device-pixel-ratio: 2) {
+                .catalog .#{mytraining.training[:alt_name]} .logo .icon {
+                  background-image: url(/trainings/#{mytraining.training[:alt_name]}/@2x/logo.png);
+                }
+              }
+
+            %a.place.my-training.animation-way{ href: training_day_path(mytraining.training_id, mytraining.day_number) }
+              .offset
+
+                .way{ data: { days: mytraining.training.day_count, day: mytraining.day_number } }
+
+                %table{ class: mytraining.training[:alt_name] }
+                  %tr
+                    %td.logo
+                      .icon
+                    %td.name
+                      %p
+                        = mytraining.training.name
+                        %span.status.day
+                          = mytraining.nominative_human_current_day_number
+                          день
+                    %td.actions
+                      = link_to 'Скрыть', "/my_trainings/hide/#{mytraining.training_id}", class: 'hide'
+
+
+
+        - if @mytraining_hidden.count > 0
+          .place.show-hidden
+            .offset
+              %p
+                Показать скрытые
+                = "(#{@mytraining_hidden.count})"
+
+
+      .section.hidden-trainings.hidden
+
+
+        %table.head.empty
+          %tr
+            %td.left
+              %hr
+            %td.head
+              %p
+                Скрытые:
+            %td.right
+              %hr
+
+        .place.hide-hidden
+          .offset
+
+            %p
+              Спрятать!
+
+
+        - if @mytraining_hidden.empty?
+
+          .place-nothing
+            .offset
+              %p
+                Таких пока нет.
+
+        - else
+
+          - @mytraining_hidden.each do |mytraining|
+
+            :css
+
+              .place .#{mytraining.training[:alt_name]} .logo .icon {
+                background-image: url(/trainings/#{mytraining.training[:alt_name]}/logo.png);
+              }
+
+              @media (-webkit-min-device-pixel-ratio: 2) {
+                .catalog .#{mytraining.training[:alt_name]} .logo .icon {
+                  background-image: url(/trainings/#{mytraining.training[:alt_name]}/@2x/logo.png);
+                }
+              }
+
+            %a.place.my-training{ href: training_day_path(mytraining.training_id, mytraining.day_number) }
+              .offset
+
+                .way-grey{ style: "width:#{( 100 / mytraining.training.day_count * mytraining.day_number)}%;" }
+
+                %table{ class: mytraining.training[:alt_name] }
+                  %tr
+                    %td.logo
+                      .icon
+                    %td.name
+                      %p
+                        = mytraining.training.name
+                        %span.status.day-grey
+                          = mytraining.nominative_human_current_day_number
+                          день
+                    %td.actions
+                      = link_to 'Показать', "/my_trainings/show/#{mytraining.training_id}", class: 'hide'
+
+
+
+
+
+      .section
+
+        %table.head.empty
+          %tr
+            %td.left
+              %hr
+            %td.head
+              %p
+                Завершенные:
+            %td.right
+              %hr
+
+
+        - if @mytraining_final.empty?
+
+          .place-nothing
+            .offset
+              %p
+                Таких пока нет.
+
+        - else
+
+          - @mytraining_final.each do |mytraining|
+
+            :css
+
+              .place .#{mytraining.training[:alt_name]} .logo .icon {
+                background-image: url(/trainings/#{mytraining.training[:alt_name]}/logo.png);
+              }
+
+              @media (-webkit-min-device-pixel-ratio: 2) {
+                .catalog .#{mytraining.training[:alt_name]} .logo .icon {
+                  background-image: url(/trainings/#{mytraining.training[:alt_name]}/@2x/logo.png);
+                }
+              }
+
+            %a.place.my-training{ href: training_path(mytraining.training_id) }
+              .offset
+
+                %table{ class: mytraining.training[:alt_name] }
+                  %tr
+                    %td.logo
+                      .icon
+                    %td.name
+                      %p
+                        = mytraining.training.name
+                        %span.status.complete
+                          Завершен
+
+
+

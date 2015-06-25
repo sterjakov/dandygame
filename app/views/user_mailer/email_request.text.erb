@@ -1,0 +1,2 @@
+Для того чтобы сменить e-mail пройдите по ссылке
+<%= url_for( controller: 'settings', action: 'email_verify', token: @user[:email_token], only_path: false ) %>

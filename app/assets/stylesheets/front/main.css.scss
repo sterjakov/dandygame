@@ -1,0 +1,89 @@
+@import "compass/presets";
+
+.noselect {
+  //cursor: default;
+}
+
+.lobster {
+  font-family: 'Lobster';
+}
+
+.bad-script {
+  font-family: 'BadScript';
+}
+
+.noselect:focus {
+  outline: none;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.space {
+  width: 100%;
+  height: 10px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  flaot: right;
+}
+
+
+.clear {
+  clear: both;
+}
+
+
+body, html {
+  height: 100%;
+}
+
+body {
+  color: $white;
+
+  &.default {
+    background-color: $blue;
+    background-image: image-url("bg.jpg");
+    background-size: (2090px / 2);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-position-y: -100px;
+    background-attachment: fixed;
+
+
+
+  }
+
+  #wrapper {
+
+    overflow: hidden;
+
+
+    background-repeat: no-repeat;
+
+    > .offset {
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+  }
+
+}

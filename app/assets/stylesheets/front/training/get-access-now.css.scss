@@ -1,0 +1,88 @@
+@import "../compass/presets";
+
+.get-access-now {
+
+  background-color: #000000;
+  background-image: asset_url('bg-register.jpg');
+  background-size: 880px 1121px;
+  background-repeat: repeat;
+  background-position: top;
+  overflow: hidden;
+
+  @include border-bottom-radius($radius-max);
+
+  .days-with-arrow {
+    display: inline-block;
+    background-image: asset_url('days-with-arrow.png');
+    background-size: 680px 84px;
+    width: 680px;
+    height: 84px;
+
+  }
+
+  h1, h2, h3, p, label {
+    color: #fff;
+  }
+
+  .notification {
+
+    .error {
+      color: #fff !important;
+    }
+
+  }
+
+  .success {
+
+    padding: 70px 0px;
+
+    text-align: center;
+
+
+    img {
+      padding: 20px 0px;
+      display: block;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    p {
+      text-align: center;
+      font-size: 22px;
+    }
+
+
+    #email-sended {
+      text-align: center;
+      width: 100%;
+      padding: 15px 0px;
+      display: block;
+      position: relative;
+      font-style: italic;
+      font-size: 22px;
+    }
+
+
+  }
+
+
+
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+
+  .get-access-now {
+    background-image: asset_url('@2x/bg-register.jpg') !important;
+  }
+
+  .days-with-arrow {
+    background-image: asset_url('@2x/days-with-arrow.png') !important;
+  }
+
+}
+
+
+
+
+

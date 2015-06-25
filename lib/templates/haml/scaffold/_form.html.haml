@@ -1,0 +1,23 @@
+= form_for [:admin, @<%= singular_table_name %>], :html => { :class => "form-horizontal" } do |f|
+  -if @<%= singular_table_name %>.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@<%= singular_table_name %>.errors.count} #{Russian::p(@<%= singular_table_name %>.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.<%= singular_table_name %>.sozdanie')}:"
+      %ul
+        - @<%= singular_table_name %>.errors.full_messages.each do |msg|
+          %li= msg
+
+<% for attribute in attributes -%>
+  .form-group
+    = f.label :<%= attribute.name %>, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.<%= attribute.name %>'
+    .col-sm-9
+      <% if attribute.name == 'description' %>
+      = f.cktext_area :<%= attribute.name %>, ckeditor: {disableNativeSpellChecker: false, removePlugins: 'liststyle,tabletools,contextmenu', height: 400, toolbar: [['Source'],[ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],[ 'Link','Unlink','Anchor' ],[ 'Styles','Format','Font','FontSize' ],[ 'TextColor','BGColor' ],[ 'Image','HorizontalRule','Smiley','SpecialChar']]}
+      <% else %>
+      = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => 'form-control'
+      <% end %>
+<% end -%>
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit ((action_name == 'edit') ? "Обновить " : "Создать ") + t('activerecord.models.<%= singular_table_name %>.sozdat') + "!", :class => 'btn btn-primary'

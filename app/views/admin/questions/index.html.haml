@@ -1,0 +1,53 @@
+= link_to new_admin_question_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.question.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.question.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th
+          = t 'activerecord.attributes.email'
+        %th
+          Тренинг
+        %th
+          = t 'activerecord.attributes.status'
+        %th
+          = t 'activerecord.attributes.description'
+        %th.actions
+
+    %tbody
+      - @questions.each do |question|
+        %tr
+          
+          %td= link_to question.user.email, [:edit, :admin, question.user] if question.user
+          
+          
+          %td
+            - if question.day
+              = question.day.training.name
+              = "(" + question.day.number + "день)"
+
+          %td= question.get_status
+          
+          
+          %td= truncate( question.description, length: 25 )
+
+
+          %td
+            = link_to edit_admin_question_path(question), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin,question], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-default btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @questions, renderer: BootstrapPagination::Rails, class: 'no-margin'

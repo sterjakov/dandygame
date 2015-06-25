@@ -1,0 +1,35 @@
+@import "compass/presets";
+
+.robokassa-form {
+
+  width: 300px;
+  margin: 0 auto;
+
+  .preloader {
+
+
+    img {
+      width: 150px;
+      height: 150px;
+      margin-left: 42px;
+    }
+
+  }
+
+
+  .offset {
+
+    margin-top: 235px;
+    margin-bottom: 235px;
+
+    p {
+      margin-top: 220px;
+      font-size: 20px;
+      color: #FFF;
+    }
+
+
+  }
+
+
+}

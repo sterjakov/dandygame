@@ -1,0 +1,46 @@
+#login.offset
+
+  .content
+    .offset
+
+      %h1 Вход
+
+      = form_for @user, url: { controller: "auth", action: 'login_process' }, html: { style: 'width: 360px: margin: 0 auto;', class: 'px280' } do |f|
+
+        .offsetter-height-half
+
+          = render partial: 'block/form_errors', locals: { model: @user }
+
+        .row
+          = f.label :email
+          = f.text_field :email
+
+        .row
+          = f.label :password
+          = f.password_field :password
+
+        .row
+          .float-left
+            = f.check_box :strange_computer
+            Чужой компьютер
+          .float-right.text-right
+            %a{ href: '/remember' }
+              Забыли пароль?
+          .clear
+
+        = render partial: 'block/form_captcha', locals: { f: f }
+
+
+        .row.actions
+          = f.hidden_field :request_referer, value: request.referer
+          = f.submit '', class: 'hidden'
+          %a.button.big.orange.all-width{ onclick: 'document.getElementsByTagName("form")[0].submit();' }
+            Войти!
+
+
+
+
+
+
+
+

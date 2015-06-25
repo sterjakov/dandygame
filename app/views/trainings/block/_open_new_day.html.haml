@@ -1,0 +1,79 @@
+- if @mytraining.added? and @day and @current_user and @day[:number] < @mytraining.training.day_count and @mytraining.status_active?
+
+  - if @mytraining[:day_number] == @day[:number] and @mytraining.activation_date_expired?
+
+
+    - if @day[:number] < @mytraining.training[:free_day]
+
+
+
+
+
+      = form_for @mytraining, url: { controller: 'my_trainings', action: 'update' }, html: { class: 'feedback_for_activation feedback_counter' } do |f|
+
+        - if @mytraining.one_day_left_at_activation_date_expired?
+          - day_action_name = 'прямо сейчас!'
+        - else
+          - day_action_name = 'после 06:00 утра!'
+
+        %p
+          Напиши здесь о том что тебе больше всего понравилось в этом дне!
+          Так ты помогаешь нам делать тренинги еще лучше, а взамен
+          мы дадим тебе доступ к
+          = @mytraining.dative_human_next_day_number
+          дню!
+          %span.symbol_counter.orange
+            Осталось всего
+            %span.number
+              10
+            букв.
+          %span.ready.green.hidden
+            Готово!
+
+
+        = f.text_area :description, value: flash[:feedback_description], placeholder: 'Например: Мне очень понравилось задание про воздушные шарики.'
+        = f.hidden_field :training_id, value: @mytraining[:training_id]
+
+
+        %a.button.with-icon.orange.big.all-width.submit{ href: '#login' }
+          %span
+
+            Получить доступ к
+            = @mytraining.dative_human_next_day_number
+            дню
+            = day_action_name
+
+
+    - else
+
+
+      - if @current_user.have_money?
+
+        = form_for @mytraining, url: { controller: 'my_trainings', action: 'update' } do |f|
+
+          = f.hidden_field :training_id, value: @mytraining[:training_id]
+
+          %a.button.with-icon.orange.big.all-width.submit{ href: '#login' }
+            %span
+
+              - if @mytraining.one_day_left_at_activation_date_expired?
+                Открыть
+              - else
+                Активировать
+
+              = @mytraining.nominative_human_next_day_number
+              день тренинга
+              %span.pressed.pay
+                Платно!
+
+      - else
+
+        .alert
+
+          %p
+            %span.red
+              Внимание!
+            %span
+              На вашем счету недостаточно дней для того чтобы продолжить этот тренинг, пожалуйста пополните его!
+            = link_to 'Пополнить счет дней.' ,'/shop', class: 'blue'
+

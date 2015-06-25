@@ -1,0 +1,423 @@
+@import "compass/presets";
+
+.content {
+
+
+  padding: 0px 10px;
+
+
+  > .offset {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    background-color: #fff;
+    color: #000000;
+    @include border-radius($radius-max);
+
+    img:first-child {
+      @include border-top-radius($radius-max !important);
+    }
+
+
+    .donation {
+
+      p {
+        font-size: 20px;
+        margin: 0 $offset-left;
+      }
+
+    }
+
+    .what-you-get {
+
+
+      li {
+        font-size: 24px !important;
+      }
+
+    }
+
+    ul.menu {
+
+      li {
+        display: inline-block;
+
+        a {
+          font-size: 20px;
+          margin: 0px 4px;
+          line-height: 25px;
+          color: #747474;
+
+          &:hover {
+            color: #000000;
+          }
+
+          &.selected {
+            color: #000000;
+            text-decoration: none;
+          }
+
+
+
+        }
+      }
+
+    }
+
+    .declaration {
+      margin-top: -3px;
+      display: block !important;
+      background-color: #edece8;
+      overflow: hidden;
+
+
+      table {
+
+        tr {
+
+          td {
+            vertical-align: middle;
+          }
+
+        }
+
+      }
+
+
+      .icon-present-big-dark {
+        margin-right: 25px;
+        display: block;
+        background-image: asset_url("icon-present-big-dark.png");
+        background-size: 65px 71px;
+        width: 65px;
+        height: 71px;
+
+      }
+
+      p {
+        font-size: 20px;
+        display: inline-block;
+      }
+
+
+    }
+
+    .grey {
+      color: #bfbfbf;
+    }
+
+    .ad-728 {
+      margin: $offset-top auto 25px;
+      width: 728px;
+      height: 90px;
+      background-color: #e0e0e0;
+    }
+
+    .space {
+      height: $offset-top;
+      width: 100%;
+    }
+
+    .bread-crumbs {
+
+      h1 {
+        margin-bottom: 0px;
+      }
+
+      a, p {
+        margin: 0px 2px;
+        color: #848383;
+        float: left;
+      }
+
+      .links {
+        margin-top: 5px;
+        display: inline-block;
+      }
+
+
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #bfbfbf;
+    }
+
+
+    h1, h2, h3, h4, p.head {
+      margin: $offset-top $offset-left;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: "Lobster";
+      font-size: 40px;
+    }
+
+    h2, p.head {
+      text-align: center;
+      font-family: "Lobster";
+      font-size: 35px;
+    }
+
+    h3 {
+      text-align: center;
+      font-family: "Times New Roman";
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    .author {
+      margin-top: - $offset-top / 1.3;
+      text-align: right;
+    }
+
+
+    > p, .tasks > p, td {
+      font-size: 22px;
+      margin: $offset-top $offset-left;
+    }
+
+
+    ul {
+        list-style: disc;
+
+      ul {
+        list-style: circle;
+
+        ul {
+          list-style: square;
+        }
+
+      }
+
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    .tasks > ul, .tasks > ol {
+      margin: $offset-top $offset-left / 2 $offset-top ($offset-left + 22px) / 2;
+    }
+
+    .tasks p {
+      margin: $offset-top $offset-left / 2 $offset-top $offset-left / 2;
+    }
+
+
+    > ul,  > ol, .what-you-get > ul, .what-you-get > ol, {
+      margin: $offset-top $offset-left $offset-top $offset-left + 22px;
+    }
+
+
+    > ul,  > ol, > .tasks > ol, > .tasks > ul, .what-you-get > ul, .what-you-get > ol,{
+
+      &.square {
+        list-style: square;
+      }
+
+      &.dash {
+
+        list-style: none;
+
+
+        > li {
+          margin-left: 30px;
+        }
+
+        > li:before {
+          margin-left: -30px;
+          position: absolute;
+          content:  "—";
+          display: inline-block;
+
+        }
+
+      }
+
+      li {
+        font-size: 20px;
+        margin: $offset-top / 4 0px;
+
+        p {
+          margin: $offset-top / 2 0px;
+        }
+
+        img {
+          margin: $offset-top / 3 0px;
+        }
+
+      }
+
+      ul {
+        margin: $offset-top / 4 $offset-left / 4;
+
+      }
+
+    }
+
+
+    .table {
+      margin: $offset-top $offset-left;
+
+      table {
+        width: 100%;
+
+        &.first-column-left {
+          tr {
+            td:first-child {
+              text-align: right;
+              padding: 0px 20px 0px 0px;
+            }
+          }
+        }
+
+        tr {
+
+          td {
+            padding: 5px 0px;
+          }
+
+
+        }
+
+      }
+
+    }
+
+
+
+    blockquote {
+
+      margin: $offset-top $offset-left;
+
+      p {
+        text-align: right;
+        padding-left: 30%;
+        margin: 5px 0px;
+        font-size: 15px !important;
+        font-style: italic !important;
+
+        &:last-child {
+          font-weight: 600;
+          display: block;
+          margin-top: 6px;
+        }
+
+      }
+
+
+    }
+
+    .warning {
+      background-color: #edece8;
+      padding: $offset-top $offset-top;
+    }
+
+    .tasks {
+      display: block;
+      border: 3px solid red;
+      margin: $offset-top + 20 100px;
+      padding: 0px 0px;
+      #background-color: #edece8;
+      background-color: #fff;
+      @include border-radius($radius-max);
+
+
+    }
+
+    .offsetter {
+      margin: $offset-top $offset-left;
+    }
+
+    .offsetter-width {
+      margin: 0 $offset-left;
+    }
+
+    .offsetter-height {
+      margin: $offset-top 0;
+    }
+
+    .offsetter-height-half {
+      margin: $offset-top / 2 0;
+    }
+
+    b {
+      font-weight: bold;
+    }
+
+    i {
+      font-style: italic;
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .content {
+
+    padding: 0px 0px;
+
+    > .offset {
+
+      @include border-radius(0);
+
+      img:first-child {
+        @include border-top-radius(0 !important);
+      }
+
+      .get-access-now {
+        @include border-bottom-radius(0);
+      }
+
+
+      h1 {
+        font-size: 35px !important;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      h2, h3, > p, blockquote, .training-head, .days, .tasks, .tasks p, .offsetter,  .google-adsense, .bread-crumbs, > .actions {
+        margin: $offset-top $offset-left / 4 !important;
+      }
+
+      .offsetter-width,  {
+        margin: 0 $offset-left / 4 !important;
+      }
+
+
+
+      h1 {
+        margin-left: $offset-left / 4;
+        margin-right: $offset-left / 4;
+      }
+
+      > ul, > ol, .tasks ul, .tasks ol, .what-you-get > ul, .what-you-get > ol  {
+        margin: $offset-top $offset-left / 4 $offset-top $offset-left / 4 + 22px !important;
+      }
+
+
+
+    }
+
+  }
+
+
+
+
+}
+
+
+
+

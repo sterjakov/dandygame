@@ -1,0 +1,27 @@
+- if @mytraining.added? and @current_user and @mytraining.status == 1
+
+
+  .donation.centered
+
+    %p
+      Поздравляю тебя с успешным завершением тренинга! Если он тебе помог ты всегда можешь поддержать наш проект, будем рады любой сумме.
+      Спасибо!
+
+    %br
+    %br
+    %br
+
+    = render partial: 'trainings/block/yandex_money'
+
+    %br
+    %br
+    %br
+
+  %hr
+
+  .space
+
+  .final
+    %p
+      %span.icon.orange-good
+      Тренинг завершен!

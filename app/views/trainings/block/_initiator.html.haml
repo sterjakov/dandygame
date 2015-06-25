@@ -1,0 +1,62 @@
+- content_for :initiator do
+
+  :css
+
+    /* Иконка тренинга */
+    #initiator .logo {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background-size: 60px 60px;
+      background-image: url(/trainings/#{@training[:alt_name]}/logo.png);
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      #training .logo {
+        background-image: url(/trainings/#{@training[:alt_name]}/@2x/logo.png);
+      }
+    }
+
+
+  #initiator.guest
+    .offset
+
+
+      %table.training-name
+        %tr
+          %td
+            .logo
+          %td
+            %h1
+              = @training[:name]
+          %td
+            %p.bad-script
+              %span.defis –
+              онлайн тренинг
+
+
+      - if @current_user and @mytraining.added?
+
+        = render partial: "trainings/days"
+
+      - else
+
+        %table.training-key
+          %tr
+            %td
+              .icon.key
+            %td
+              -#%a{ href: '#get_access_now' }
+              %a
+                Бесплатный доступ к
+                %br.hidden
+                1-ому дню из 15-и в самом низу ↓
+
+
+          %td.arrow-right
+            %a.icon{ href: "/trainings/next/#{@training[:id]}" }
+
+
+
+
+

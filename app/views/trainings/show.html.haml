@@ -1,0 +1,50 @@
+= render partial: 'trainings/parallax'
+
+
+
+.offset
+
+  #training
+    .content
+      .offset
+
+        .space
+
+        = render partial: "trainings/block/initiator"
+
+        =# render partial: "trainings/days"
+
+        =# render partial: 'trainings/teaser'
+
+        =# render partial: 'trainings/block/start_free'
+
+        =# render partial: 'trainings/ads/google_up'
+
+
+        .what-you-get
+
+          %h2
+            Что ты получишь?
+
+          = @training[:description].html_safe
+
+        =# render partial: 'trainings/block/format'
+
+        - unless @current_user
+
+          = render partial: 'trainings/block/how_it_work'
+
+          = render partial: 'trainings/block/attention'
+
+          =# render partial: 'trainings/ads/google_down'
+
+          = render partial: 'trainings/block/get_access_now'
+
+        -# if @current_user
+
+          = render partial: 'trainings/ads/google_down'
+
+        = render partial: "trainings/actions"
+
+
+  = render partial: 'feedbacks/index'

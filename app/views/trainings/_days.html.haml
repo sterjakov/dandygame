@@ -1,0 +1,23 @@
+.days
+
+  %table
+    %tr
+      %td
+        %a{ href: "/trainings/#{@training[:id]}/#content_name", class: day_pagination_class(0) }
+          .icon-flag
+        .line{ class: day_pagination_line_class(0) }
+      - @training[:day_count].times do |number|
+        - number += 1
+
+        %td
+          %a{ href: "/trainings/#{@training[:id]}/days/#{number}#content_name", class: day_pagination_class(number) }
+            = number
+          .line{ class: day_pagination_line_class(number) }
+
+
+  .list
+    %p Это
+    - select_list = [["описание", 0]]
+    - @training[:day_count].times{ |number| number += 1 and select_list << [ number.to_s + " день", number ] }
+    = select_tag("day_number", options_for_select(select_list, (controller_name == 'days') ? params[:id] : 0))
+    %p тренинга.

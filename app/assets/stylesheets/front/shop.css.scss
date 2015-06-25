@@ -1,0 +1,132 @@
+@import "compass/presets";
+
+#shop {
+
+  display: block;
+
+
+  .catalog {
+
+    .price {
+
+      text-align: center;
+
+      .icon {
+        width: 77px;
+        height: 56px;
+        background-image: asset_url('price-day-sprite.png');
+        background-size: 77px 228px;
+
+        &.day-6 {
+          background-position: 0px 0px;
+        }
+
+        &.day-12 {
+          background-position: 0px -57px;
+        }
+
+        &.day-48 {
+          background-position: 0px -114px;
+        }
+
+        &.day-96 {
+          background-position: 0px -171px;
+        }
+
+      }
+
+      .top {
+
+        margin-top: 54px;
+        display: inline-block;
+
+        .icon, p {
+          display: inline-block;
+          white-space: nowrap;
+          vertical-align: middle;
+        }
+
+        p {
+          font-family: "Lobster";
+          font-size: 30px;
+          padding-left: 5px;
+        }
+
+      }
+
+      .bottom {
+
+        p {
+          padding-top: 5px;
+          font-family: "Lobster";
+          font-size: 20px;
+          padding-left: 5px;
+        }
+
+      }
+
+
+    }
+
+    .pay {
+      text-align: center;
+
+      .system {
+        margin-top: 25px;
+        display: inline-block;
+        width: 215px;
+        height: 80px;
+        background-size: 100% 100%;
+
+        &.yandex {
+          background-image: asset_url('pay-yandex.png');
+        }
+
+        &.webmoney {
+          background-image: asset_url('pay-webmoney.png');
+        }
+
+        &.card {
+          background-image: asset_url('pay-card.png');
+        }
+
+        &.qiwi {
+          background-image: asset_url('pay-qiwi.png');
+        }
+
+
+      }
+
+    }
+
+  }
+
+
+  .day-info {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+
+    p.head {
+      font-size: 25px;
+      font-family: "Lobster";
+      margin: 0 auto;
+      display: inline-block;
+      text-align: center;
+      padding: 25px 0px;
+
+      span {
+        @include text-shadow(rgba(#fff, 1) 0px 0px 15px);
+      }
+
+      .present {
+        color: #ffef3e;
+      }
+
+    }
+
+
+  }
+
+
+}

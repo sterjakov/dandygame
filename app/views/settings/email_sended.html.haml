@@ -1,0 +1,25 @@
+#email_sended.offset
+  .content
+    .offset
+
+
+      %h1 Подтверждение email
+
+
+      .centered
+        = image_tag 'icon-email-signup.png', width: 128 , height: 128, style: 'margin-right: 10px;'
+
+      %p
+        Отлично! Теперь вам необходимо перейти по ссылке, отправленной на ваш email
+        %span.email
+          %b
+            = @current_user[:new_email]
+        для того чтобы сменить его на новый адрес.
+
+
+
+
+
+
+
+

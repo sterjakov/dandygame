@@ -1,0 +1,5 @@
+- url = url_for( controller: 'days', action: 'show', training_id: @day.training.id, id: @day[:number], anchor: "comment-id_#{@comment.id}", only_path: false )
+
+Для того чтобы прочитать ответ пройдите по ссылке
+
+= link_to url, url

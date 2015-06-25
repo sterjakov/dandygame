@@ -1,0 +1,66 @@
+@import "../compass/presets";
+
+.training-head {
+
+  .notification {
+    display: none;
+    padding: 15px;
+    border: 3px solid #f0f0f0;
+    @include border-radius($radius-max);
+    overflow: hidden;
+
+    ul {
+
+      li {
+        margin-left: 0px !important;
+        list-style: none;
+        color: #5d5d5d !important;
+      }
+
+
+    }
+
+  }
+
+}
+
+
+.content, .training-head {
+
+  .notification {
+
+    display: block;
+
+    ul {
+
+      display: block;
+
+      li {
+        margin-left: 17px;
+        font-size: 18px;
+        font-family: "Times New Roman";
+      }
+
+      &.errors, &.success, &.notice {
+        font-size: 18px;
+      }
+
+      li.error {
+        color: #cc0000;
+      }
+
+      li.success {
+        color: #009c00;
+      }
+
+      li.notice {
+        color: #e16c12;
+      }
+
+
+    }
+
+  }
+
+}
+

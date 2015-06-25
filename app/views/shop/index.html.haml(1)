@@ -1,0 +1,117 @@
+.menu-space-min
+.offset
+
+  .catalog
+
+    = render partial: 'block/form_animated_errors', locals: { model: @pay }
+
+    - if flash[:pay_status] == 'good'
+
+      .notification.good
+
+        .offset
+
+          %table
+            %tr
+              %td.left
+                = image_tag('icon-thumbs-up.png', width: '46px', height: '46px')
+              %td.right
+                %p.lobster
+                  Платеж прошел успешно. Спасибо за вашу покупку!
+
+    - if flash[:pay_status] == 'bad'
+
+      .notification.bad
+
+        .offset
+
+          %table
+            %tr
+              %td.left
+                = image_tag('icon-thumbs-down.png', width: '46px', height: '46px')
+              %td.right
+                %p.lobster
+                  Платеж не прошел, попробуйте еще раз!
+
+
+  #shop
+
+    .catalog
+
+      .day-info
+        %p.head
+          На вашем счету:
+          -#%span.present
+          %span
+            0 дней
+
+
+      .section
+
+        %table.head
+          %tr
+            %td.left
+              %hr
+            %td.head
+              %p
+                Выберите пакет дней:
+            %td.right
+              %hr
+
+
+      - Pay::PRICE.map do |price|
+
+
+        .price.place.half.px215.animation-circles-flare{ data: { id: price[:number] }}
+          .offset
+
+            .circles-flare-1
+            .circles-flare-2
+            .circles-flare-3
+
+            .top
+              .icon{ class: "day-#{price[:number]}"}
+              %p.day
+                = price[:name]
+            .bottom
+              %p.number
+                за
+                = price[:cost]
+                рублей
+
+      .clear.space
+
+
+
+      .section
+
+        %table.head
+          %tr
+            %td.left
+              %hr
+            %td.head
+              %p
+                Выберите способ оплаты:
+            %td.right
+              %hr
+
+      - Pay::SYSTEM.map do |pay|
+
+        .pay.place.half.px150.animation-size{ data: { id: pay }}
+          .offset
+
+            .system{ class: pay }
+
+      .clear.space
+
+
+      = form_for @pay, url: '/shop' do |f|
+
+        = f.hidden_field :price
+        = f.hidden_field :system
+
+        %a.button.orange.all-width.big.submit
+          Оплатить
+
+      .space.clear
+      .space.clear

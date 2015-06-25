@@ -1,0 +1,17 @@
+%a{ name: 'get_access_now' }
+.get-access-now
+
+  .offsetter
+
+
+    - if flash[:access_sended]
+
+      = render partial: 'trainings/block/get_access_success'
+
+    - else
+
+      = render partial: 'trainings/block/get_access_form'
+
+  .space
+
+

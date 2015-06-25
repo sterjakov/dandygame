@@ -1,0 +1,23 @@
+- unless @current_user or @mytraining and @mytraining.added?
+
+  - if @training.free_day > 0
+
+    .declaration
+      .offsetter
+
+        %table
+
+          %tr
+
+            %td
+              .icon-present-big-dark
+            %td
+              %p
+                Уже прямо сейчас ты можешь начать этот онлайн-тренинг и пройти его
+                %b
+                  первые
+                  = @training.free_day.to_s + " " + Russian.p(@training.free_day, 'день','дня','дней')
+                  совершенно бесплатно!
+
+
+

@@ -1,0 +1,105 @@
+#signup.offset
+  .content
+    .offset
+
+
+
+
+      = image_tag '/trainings/dostizhenie-tseley/day/0-1.jpg', class: 'replace-hq', 'data-src-hq' => '/trainings/dostizhenie-tseley/day/@2x/0-1.jpg', width: '100%'
+
+      %h1
+        Прошу 25 секунд твоего внимания!
+
+      %p Чтобы изменить что то в своей жизни и получить весомый результат от тренинга держись всего 3-ех простых правил:
+
+      %ol
+        %li
+          Читай текст
+          %b предельно внимательно
+          от начала и до конца!
+        %li
+          Всегда выполняй задания
+          %b{ style: 'color: red; '} в красных рамочках!
+        %li
+          Пройди тренинг
+          %b до 15-ого дня
+          и ты добьешься поставленных целей!
+
+
+      %p.centered
+        На этом все! Становись лучше с каждым новым днем!
+        %br
+        %br
+        – "Добро пожаловать в DandyGame!"
+
+
+      .offsetter
+        %hr
+        %a{ name: 'form' }
+
+
+      %h2
+        Принятие правил
+
+      .offsetter
+
+        .px280
+
+          = form_for @user, url: { controller: "auth", action: 'signup_complete_process', anchor: 'form' },  html: { style: 'width: 360px: margin: 0 auto;', class: 'px280' } do |f|
+
+            .offsetter-height-half
+
+              = render partial: 'block/form_errors', locals: { model: @user }
+
+            .row
+              = f.label :nickname, class: 'required'
+              = f.text_field :nickname
+
+            .row
+              = f.label :birthday, class: 'required'
+              .birthday-field
+                = f.date_select :birthday, :start_year => 100.years.ago.year, end_year: Date.today.year, prompt: { day: 'День', month: 'Месяц', year: 'Год'  }
+
+            .row
+              = f.label :gender, class: 'required'
+
+              = f.select :gender, [ ['Мужской', 0], ['Женский', 1 ] ], prompt: true
+
+
+            .row{ style: "margin-bottom: 7px;"}
+              = f.label :avatar
+              = f.hidden_field :crop
+
+              .avatar
+                %a.button.grey.min.all-width.image-load{ href: '#avatar_load' }
+                  Загрузить и обрезать
+                  %br
+                  %span{ style: 'font:  14px "Times";'}
+                    От 200*200 пикселей
+
+                .image-crop.hidden
+                  %img
+
+                  %a.button.grey.min.all-width.cancel{ href: '#avatar_load' }
+                    Отмена
+
+                = f.file_field :avatar, class: 'hidden'
+            .clear
+
+
+            = render partial: 'block/form_captcha', locals: { f: f }
+
+            .row.actions
+              = f.submit '', class: 'hidden'
+              %a.button.big.orange{ onclick: 'document.getElementsByTagName("form")[0].submit();' }
+                Принимаю правила!
+
+
+            %p.grey.centered Внимание! Поля отмеченные * обязательны для заполенния!
+
+            .space
+
+
+
+
+

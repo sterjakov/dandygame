@@ -1,0 +1,16 @@
+- if @teaser
+
+  - src = '/trainings/day/' + @teaser
+  - src_hq = '/trainings/day/@2x/' + @teaser
+
+- elsif controller_name == 'trainings'
+
+  - src = '/trainings/' + @training.alt_name + '/day/0-1.jpg'
+  - src_hq = '/trainings/' + @training.alt_name + '/day/@2x/0-1.jpg'
+
+- elsif controller_name == 'days'
+
+  - src = '/trainings/' + @training.alt_name + '/day/' + params[:id] + '-1.jpg'
+  - src_hq = '/trainings/' + @training.alt_name + '/day/@2x/' + params[:id] + '-1.jpg'
+
+= image_tag(src, data: { src_hq: src_hq }, class: 'replace-hq')

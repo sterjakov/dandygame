@@ -1,0 +1,44 @@
+%a{ name: 'congratulations' }
+
+-# if flash[:success_final]
+
+  #congratulations
+    .content
+
+      .offset
+
+        %br
+
+        %h2
+          Поздравляем, с успешным завершением треннига!
+
+        %br
+
+%a.space{ name: 'feedbacks' }
+- if @feedbacks.count > 0
+
+  #feedbacks
+
+    .content
+
+      .offset
+
+        %p.head
+          Отзывы
+          = "(" + @feedbacks.count.to_s + ")"
+
+        .feedbacks-block
+
+          .offsetter-width
+
+            .offsetter-width-height-half
+
+              = render partial: 'block/form_errors', locals: { model: @feedback }
+
+            .authenticity_token{ data: form_authenticity_token }
+
+            = render partial: 'feedbacks/feedbacks', locals: { feedbacks: @feedbacks }
+
+        .space
+        %br
+

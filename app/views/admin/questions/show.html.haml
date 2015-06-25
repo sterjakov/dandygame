@@ -1,0 +1,29 @@
+= link_to admin_questions_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to edit_admin_question_path(@question), :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-pencil
+  Редактировать
+
+= link_to [:admin, @question], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+%h2.no-margin
+  Просмотр
+  = t 'activerecord.models.question.sozdanie'
+
+%hr
+
+%dl.dl-horizontal
+  %dt= t('activerecord.attributes.user_id') + ":"
+  %dd= @question.user_id
+  %dt= t('activerecord.attributes.day_id') + ":"
+  %dd= @question.day_id
+  %dt= t('activerecord.attributes.status') + ":"
+  %dd= @question.status
+  %dt= t('activerecord.attributes.description') + ":"
+  %dd= @question.description
+  %dt= t('activerecord.attributes.reviewed') + ":"
+  %dd= @question.reviewed

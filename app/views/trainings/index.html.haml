@@ -1,0 +1,128 @@
+%h1.hidden
+  Онлайн тренинг
+
+
+.menu-space-min
+.offset
+
+
+  .catalog.super-hero{ style: 'margin: 0px 10px 5px;'}
+
+    = image_tag('/images/main-teaser.png', width: '100%', class: 'replace-hq', 'data-src-hq' => '/images/@2x/main-teaser.png')
+
+  .catalog{ style: 'margin-bottom: -10px;'}
+
+    - @trainings.each do |training|
+
+      - url    = "/trainings/#{training[:id]}"
+
+      - if @mytrainings
+
+        - status = nil
+
+        - @mytrainings.map do |mytraining|
+
+
+          - if mytraining.training_id == training.id
+
+            - if mytraining.status == 0
+
+              - url = "/trainings/#{training[:id]}/days/#{mytraining[:day_number]}"
+
+              - status = content_tag :p do
+
+                - content_tag :span, class: 'status day' do
+
+                  = mytraining.nominative_human_current_day_number
+                  день
+
+            - elsif mytraining.status == 1
+
+              - status = content_tag :p do
+
+                - content_tag :span, class: 'status complete' do
+
+                  Завершен.
+
+
+      %a.training.place.half.animation-line-flare.px215{ href: url, class: training[:alt_name]}
+        .offset
+
+          .line-flare
+
+          .front
+
+            %table.name
+
+              %tr
+
+                %td.left
+
+                  :css
+
+                    .catalog .#{training[:alt_name]} .logo {
+                      background-image: url(/trainings/#{training[:alt_name]}/logo.png);
+                    }
+
+                    @media (-webkit-min-device-pixel-ratio: 2) {
+                      .catalog .#{training[:alt_name]} .logo {
+                        background-image: url(/trainings/#{training[:alt_name]}/@2x/logo.png);
+                      }
+                    }
+
+                  .logo
+
+                %td.right
+
+                  %p
+                    %span.name
+                      = training[:name]
+
+                  = status
+
+
+
+          .back.hidden
+
+            .name
+              .left
+                .logo
+              .right
+                %p
+                  = training[:name]
+
+
+            %p.min_description
+              = training[:min_description]
+
+            -#.info
+              .left{ title: 'Продолжительность тренинга' }
+                .sun.icon
+
+                %p
+                  = training[:day_count]
+                  дней
+
+              - if training[:people_count] > 15
+                .center{ title: 'Участники тренинга' }
+                  .user.icon
+                  %p
+                    = training[:people_count]
+                    чел.
+
+              - if training[:price] > 0
+                .right{ title: 'Стоимость тренинга' }
+                  .cash.icon
+                  %p
+                    = training[:price]
+                    руб.
+              .clear
+
+
+
+
+
+
+    .clear
+
+

@@ -1,0 +1,15 @@
+= link_to admin_training_days_path(@training), :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to "#save", :onclick => 'document.getElementsByTagName("form")[0].submit();', :class => 'btn btn-warning pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-floppy-disk
+  Сохранить
+
+%h2.no-margin
+  Создание
+  = t 'activerecord.models.day.sozdanie'
+
+%hr
+
+= render 'form'

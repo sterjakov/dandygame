@@ -1,0 +1,27 @@
+
+%title
+  = @meta_title + ' |' if @meta_title
+  DandyGame.ru – онлайн тренинги
+
+
+
+
+
+- if @meta_keywords
+
+  %meta{ name: 'keywords', content: @meta_keywords }
+
+- else
+  %meta{ name: 'keywords', content: 'Онлайн игра, онлайн курсы, обучение онлайн, дистанционное обучение, дистанционные курсы, дистанционное образование, обучающие курсы, курсы обучение, учебные курсы, курсы дистанционного обучения' }
+
+
+
+
+
+- if @meta_description
+
+  %meta{ name: 'description', content: @meta_description }
+
+- else
+
+  %meta{ name: 'description', content: 'Каталог премиальных онлайн-тренингов. Достижение целей, бросить курить, гармония в отношениях.' }

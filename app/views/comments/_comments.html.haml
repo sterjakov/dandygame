@@ -1,0 +1,55 @@
+- if flash[:comment]
+  %input#comment-id.hidden{ value: flash[:comment] }
+
+
+- @i ||= 0
+
+- comments.map do |comment, sub_comments|
+
+  - @i += 1
+
+  - if comment.user.present?
+
+    %a.anchor{ name: "comment-id_#{comment.id}" }
+    .comment{ style: "padding-left: #{comment.depth * 15}px;", data: { id: comment.id } }
+      .header
+        = image_tag (comment.user.avatar.min) ? comment.user.avatar.min : 'user-avatar-min.jpg'
+        %a.name{ class: (comment.user_id == @current_user.try(:id)) ? 'own-author' : nil }
+          %b{ class: comment.user.role_is? == 'admin' ? 'admin' : nil}
+            = comment.user.nickname.mb_chars.capitalize
+        %p.date
+          = time_ago_in_words comment.created_at
+          назад
+
+        - if @current_user
+
+          .line
+
+          %a.cancel.hidden{ href: '#answer' }
+            Отмена
+
+
+          - if can? :create_for_own, comment
+            %a.answer{ href: '#answer' }
+              Ответить
+
+          - if can? :edit, comment
+            %a.edit{ href: '#answer' }
+              Редактировать
+
+          - if can? :delete, comment
+            %a.delete{ href: training_day_comment_path(@training, @day, comment), data: { confirm: 'Вы уверены?', method: 'delete' } }
+              Удалить
+
+      .description
+        %p
+          = comment.description
+
+      .edit-form
+      .answer-form
+
+      - unless @i >= @comments.count
+        %hr
+
+  = render partial: 'comments/comments', locals: { comments: comment.children, i: @i } if comment.has_children?
+

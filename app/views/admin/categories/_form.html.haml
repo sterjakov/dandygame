@@ -1,0 +1,20 @@
+= form_for [ :admin, @category ], :html => { :class => "form-horizontal" } do |f|
+  -if @category.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@category.errors.count} #{Russian::p(@category.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.category.sozdanie')}:"
+      %ul
+        - @category.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name, :class => 'col-sm-2 control-label' do
+      = t 'activerecord.attributes.name'
+    .col-sm-10
+      
+      = f.text_field :name, :class => 'form-control'
+
+  %hr
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit ((action_name == 'edit') ? "Обновить " : "Создать ") + t('activerecord.models.category.sozdat') + "!", :class => 'btn btn-primary'

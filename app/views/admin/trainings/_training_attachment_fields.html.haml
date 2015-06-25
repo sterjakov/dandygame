@@ -1,0 +1,23 @@
+.col-sm-12.file-field
+
+  .form-group
+    .form-horizontal
+
+      - if f.object.attachment.present?
+        %code{ style: "width: 762px; height: 35px; line-height: 31px; padding-left: 10px; float: left; margin-right: 5px;" }
+          = f.object.attachment.url
+
+      - else
+        %input.form-control{ disabled: true, placeholder: 'Файл не выбран', style: "width: 625px; float: left; margin-right: 5px;" }
+
+        %div.btn.btn-default.share_file{ href: "#" }
+          = t('activerecord.attributes.share_file')
+
+      = f.file_field :attachment, data: { :"filename-placement" => 'inside' }, title: 'Выбрать файл!', class: 'file_input hidden'
+
+      %div.btn.btn-danger.remove_field{ href: "#" }
+        = t('activerecord.attributes.remove_file')
+
+      = f.hidden_field :_destroy, class: 'destroy'
+
+      -#= image_tag(f.object.attachment.url, { height: 30 }) if f.object.attachment

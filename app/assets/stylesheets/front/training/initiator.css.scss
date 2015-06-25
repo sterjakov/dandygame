@@ -1,0 +1,303 @@
+@import "front/compass/presets";
+
+#initiator {
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  min-width: 220px;
+  padding: 10px;
+  padding-top: 0px;
+
+  > .offset {
+    padding: 10px 15px;
+    background-color: #d3d3d3;
+    @include filter-gradient(#ffffff, #cececd);
+    @include background-image(linear-gradient( #ffffff, #e1e1e1));
+    @include border-radius($radius-max);
+
+    .arrows {
+      width: 100%;
+
+      .arrow-left, .arrow-right {
+
+        .icon {
+          display: inline-block;
+          width: 26px;
+          height: 26px;
+          background-size: 52px 26px;
+          background-image: asset_url('arrows.png');
+          opacity: 0.6;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+      }
+
+      .arrow-right {
+
+        text-align: right;
+
+        .icon {
+          background-position: 26px 0px;
+        }
+
+      }
+
+    }
+
+
+
+    table {
+      margin: 0 auto;
+
+      tr {
+
+        td {
+          vertical-align: middle;
+        }
+
+      }
+
+      &.training-name {
+
+        .logo {
+          margin-right: 15px;
+        }
+
+        h1 {
+          display: inline-block;
+          font-size: 38px;
+          font-family: "Lobster";
+          margin-right: 10px;
+        }
+
+        p {
+          padding-top: 6px;
+          font-size: 20px;
+        }
+
+      }
+
+      &.training-key {
+
+        margin-top: 0px;
+
+        .icon {
+
+          &.key {
+            display: inline-block;
+            width: 44px;
+            height: 21px;
+            background-image: asset_url("icon-key.png");
+            background-size: 44px 21px;
+            margin-right: 6px;
+          }
+
+        }
+
+        a {
+          color: #000;
+          text-decoration: none;
+          font-size: 18px;
+        }
+
+      }
+
+    }
+
+
+    h1, p {
+      color: #202020;
+    }
+
+
+
+
+
+
+    .buttons {
+      margin: 8px 8px 0px 8px;
+      float: right;
+
+      > a:last-child {
+        margin-left: 3px;
+      }
+    }
+
+  }
+}
+
+// Ресайз главного блока
+
+@media screen and (max-width: 700px) {
+
+
+  #initiator {
+    padding: 0px;
+
+    > .offset {
+
+      @include border-radius(0);
+    }
+
+  }
+
+}
+
+// Резина
+
+@media screen and (max-width: 740px) {
+
+  #initiator {
+
+    > .offset {
+      padding: 15px 10px;
+
+      table {
+
+
+
+        &.training-name {
+
+          .logo {
+            margin-right: 10px;
+          }
+
+          h1 {
+            font-size: 27px;
+            margin-right: 10px;
+          }
+
+          p {
+            padding-top: 3px;
+            font-size: 18px;
+          }
+
+        }
+
+        &.training-key {
+
+          margin-top: 0px;
+
+          p {
+            font-size: 17px;
+          }
+
+        }
+
+      }
+
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 610px) {
+
+  #initiator {
+
+    > .offset {
+      padding: 15px 10px;
+
+
+
+      > .bad-script {
+        padding: 5px 0px;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+        display: block !important;
+        margin: 0 auto;
+      }
+
+
+      table {
+
+        &.training-name {
+
+
+          .bad-script {
+            display: none !important;
+          }
+
+
+        }
+
+
+
+        &.training-name {
+
+          width: 1%;
+
+
+          .logo {
+            margin-right: 15px;
+          }
+
+          h1 {
+            font-size: 27px;
+            margin-right: 10px;
+          }
+
+          p {
+            padding-top: 3px;
+            font-size: 18px;
+          }
+
+        }
+
+        &.training-key {
+
+          margin-top: 7px;
+
+          p {
+            font-size: 17px;
+          }
+
+        }
+
+      }
+
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 415px) {
+
+  #initiator {
+
+    > .offset {
+      padding: 15px 10px;
+
+      table {
+
+
+
+        &.training-key {
+
+
+          p {
+            br.hidden {
+              display: block !important;
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+  }
+
+}
+
+
+
+

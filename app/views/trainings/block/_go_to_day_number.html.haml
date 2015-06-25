@@ -1,0 +1,9 @@
+- if @mytraining.added? and @current_user and @mytraining.status_active?
+
+  - if controller_name == 'trainings' or @mytraining.day_number != @day[:number]
+
+    %a.button.with-icon.blue.big.all-width{ href: training_day_path( @mytraining[:training_id], @mytraining.day_number ) }
+      %span
+        Перейти к
+        = @mytraining.dative_human_current_day_number
+        дню тренинга

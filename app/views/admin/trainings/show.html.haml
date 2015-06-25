@@ -1,0 +1,45 @@
+= link_to admin_trainings_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to edit_admin_training_path(@training), :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-pencil
+  Редактировать
+
+= link_to [:admin,@training], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+%h2.no-margin
+  Просмотр
+  = t 'activerecord.models.training.sozdanie'
+
+%hr
+
+%dl.dl-horizontal
+  %dt= t('activerecord.attributes.name') + ":"
+  %dd= @training.name
+  %dt= t('activerecord.attributes.category_id') + ":"
+  %dd= @training.category.name if @training.category
+  %dt= t('activerecord.attributes.alt_name') + ":"
+  %dd= @training.alt_name
+  %dt= t('activerecord.attributes.description') + ":"
+  %dd= @training.description
+  %dt= t('activerecord.attributes.min_description') + ":"
+  %dd= @training.min_description
+  %dt= t('activerecord.attributes.people_count') + ":"
+  %dd= @training.people_count
+  %dt= t('activerecord.attributes.total_day') + ":"
+  %dd= @training.day_count
+  %dt= t('activerecord.attributes.free_day') + ":"
+  %dd= @training.free_day
+  %dt= t('activerecord.attributes.price_day') + ":"
+  %dd= @training.price_day
+  %dt= t('activerecord.attributes.decoration') + ":"
+  %dd= @training.decoration
+  %dt= t('activerecord.attributes.status') + ":"
+  %dd= @training.status
+  %dt= t('activerecord.attributes.meta_description') + ":"
+  %dd= @training.meta_description
+  %dt= t('activerecord.attributes.meta_keywords') + ":"
+  %dd= @training.meta_keywords

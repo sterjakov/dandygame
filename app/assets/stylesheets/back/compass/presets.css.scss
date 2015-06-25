@@ -1,0 +1,13 @@
+@import "compass";
+
+@include font-face("BadScript", font-files("/fonts/bad-script.ttf"));
+@include font-face("Lobster", font-files("/fonts/lobster.ttf"));
+
+$radius-max: 5px;
+$radius-min: 3px;
+
+$blue: #1b507c;
+$grey: #b6b6b6;
+
+
+

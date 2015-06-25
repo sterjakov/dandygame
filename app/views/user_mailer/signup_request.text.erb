@@ -1,0 +1,2 @@
+Для того чтобы завершить регистрацию пройдите по ссылке
+<%= url_for( controller: 'auth', action: 'signup_verify', token: @user[:auth_token], training_id: @user.training_id, only_path: false  ) %>

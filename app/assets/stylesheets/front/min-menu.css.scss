@@ -1,0 +1,119 @@
+@import "compass/presets";
+
+#min-menu {
+
+  position: relative;
+  z-index: 10;
+
+  .offset {
+    padding: 15px 10px;
+
+    p, a {
+      color: #fff;
+      opacity: 0.8;
+      font-size: 18px;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.selected {
+        @include text-shadow(rgba(#fff, 1) 0px 0px 15px);
+        opacity: 1;
+        text-decoration: none;
+      }
+    }
+
+    .left {
+
+      float: left;
+
+      a {
+        text-decoration: none;
+      }
+
+    }
+
+    .right {
+
+      float: right;
+
+      a {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+    }
+
+
+  }
+
+}
+
+
+@mixin min-menu-collapse {
+
+  .left, .right {
+    float: none !important;
+  }
+
+  .left {
+
+  }
+
+  .right {
+    margin-top: 10px !important;
+  }
+
+}
+
+
+
+@media screen and (max-width: 755px) {
+
+  #min-menu {
+
+    &.guest {
+
+      @include min-menu-collapse;
+
+    }
+
+  }
+
+}
+
+
+
+
+
+@media screen and (max-width: 740px) {
+
+  #min-menu {
+
+    &.role-1 {
+
+      @include min-menu-collapse;
+
+    }
+
+  }
+
+}
+
+
+@media screen and (max-width: 855px) {
+
+  #min-menu {
+
+    &.role-2, &.role-3 {
+
+      @include min-menu-collapse;
+
+    }
+
+  }
+
+}
+
+

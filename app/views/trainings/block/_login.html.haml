@@ -1,0 +1,14 @@
+- unless @current_user 
+
+  .login
+
+    %a.button.blue.big.all-width{ href: '/signup' }
+      - if @training.free_day > 0
+        Зарегистрироваться и начать тренинг бесплатно!
+      - else
+        Зарегистрироваться и начать тренинг!
+
+    .centered.alert
+      %p Или войдите на сайт если у вас есть аккаунт
+      %a.button-simple.color-blue.min{ href: '/login' }
+        Войти на сайт

@@ -1,0 +1,29 @@
+@import "compass/presets";
+
+
+.info {
+
+  .icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+  }
+
+
+
+  .sun {
+    background-image: image_url('icon-sun.png');
+  }
+
+  .cash {
+    background-image: image_url('icon-cash.png');
+  }
+
+  .user {
+    background-image: image_url('icon-user.png');
+  }
+
+}
+
+

@@ -1,0 +1,262 @@
+@import "../compass/presets";
+
+.anchor-training-actions {
+  margin-top: -35px;
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+
+.training-actions {
+
+  .button {
+
+    &:active {
+
+      .free, .pay {
+        @include box-shadow(rgba(#fff, 0.4) 0px 0px 15px,rgba(#bababa, 1) 0px 1px 0,rgba(#bababa, 1) 0px 2px 0,rgba(#bababa, 1) 0px 3px 0,rgba(#bababa, 1) 0px 4px 0, rgba(#bababa, 1) 0px 5px 0, rgba(#ad4e18, 0.4) -4px 10px 4px);
+        @include text-shadow(none);
+
+      }
+
+    }
+
+    .free, .pay {
+      font-family: "Times New Roman";
+      font-size: 14px;
+      @include border-radius($radius-min);
+      padding: 3px 5px;
+      font-style: italic;
+      vertical-align: middle;
+    }
+
+    .free {
+      background-color: #fff616;
+      color: #ad4e18;
+    }
+
+    .pay {
+      background-color: #fff;
+      color: #d16c39;
+    }
+
+  }
+
+  .feedback_for_activation, .feedback_for_final {
+
+    textarea {
+      border: 3px solid #ffac00;
+      height: 80px;
+
+    }
+
+    p {
+      font-size: 20px;
+      font-family: "Times New Roman";
+      margin: 0px 0px 40px 0px;
+      color: #888888;
+    }
+
+    .symbol_counter {
+    }
+
+    span {
+
+      &.orange {
+        color: #dd730b !important;
+      }
+
+      &.green {
+        color: #10b700 !important;
+      }
+
+    }
+
+
+  }
+
+  .alert {
+
+    margin-top: 20px;
+
+    p {
+      display: inline-block;
+      color: #888888;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    .orange {
+      color: #dd730b !important;
+    }
+
+    .red {
+      color: #dd151f !important;
+    }
+
+    .blue {
+      color: #4d6fdf !important;
+    }
+
+    .button-simple, p {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+  }
+
+  .login, .balance {
+
+    .button-simple, p {
+      margin: 10px 0px 0px 4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+  }
+
+  .balance {
+
+    .button-simple, p {
+      margin: 10px 0px 0px 6px !important;
+    }
+
+  }
+
+  .progress {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    background-color: #c3c3c3;
+    @include filter-gradient(#eaeaea, #C3C3C3);
+    @include background-image(linear-gradient( #EAEAEA, #c3c3c3));
+    @include border-radius($radius-min);
+
+    .way {
+      opacity: 0;
+      z-index: 1;
+      text-align: center;
+      height: 100%;
+      position: absolute;
+      @include filter-gradient(#ffca10, #dd730b);
+      @include background-image(linear-gradient( #ffca10, #dd730b ));
+      @include border-radius($radius-min);
+    }
+
+    p {
+      position: relative;
+      z-index: 2;
+      padding: 20px 10px;
+      font-size: 20px;
+      line-height: 20px;
+      color: #fff;
+      @include text-shadow(rgba(#888888, 0.4) 1px 1px 0);
+    }
+
+  }
+
+  .final {
+
+    text-align: center;
+
+    p {
+      font-family: "Lobster";
+      font-size: 26px;
+      color: #ff9103;
+      vertical-align: middle;
+
+      .icon {
+
+        &.orange-good {
+          vertical-align: middle;
+          display: inline-block;
+          width: 54px;
+          height: 54px;
+          background-image: asset_url('icon-orange-good.png');
+          background-size: 54px 54px;
+        }
+
+      }
+
+    }
+
+  }
+
+  .action-button {
+    padding-bottom: 7px;
+  }
+
+  .balance {
+    text-align: center;
+    padding: 12px 0px;
+    overflow: hidden;
+    border-top: 1px solid #bfbfbf;
+    //border-bottom: 1px solid #bfbfbf;
+
+    p {
+      display: inline-block;
+      color: #888888;
+      font-size: 18px;
+      margin-right: 10px;
+
+      &.blue {
+
+        .ticket {
+          background-color: #628fec !important;
+        }
+
+        .ticket-left {
+          background-position: 0px 30px !important;
+        }
+
+        .ticket-right {
+          background-position: 5px 30px !important;
+        }
+
+      }
+
+
+    }
+
+    .ticket {
+      padding: 0px 8px 0px 7px;
+      line-height: 28px;
+      color: #fff;
+      vertical-align: middle;
+      display: inline-block;
+      height: 30px;
+      min-width: 10px;
+      background-color: #bbbbbb;
+      @include text-shadow(rgba(#fff, 1) 0px 0px 15px);
+
+    }
+
+    .ticket-left, .ticket-right {
+      background-size: 10px 60px;
+      background-image: asset_url('ticket-sprite-min.png');
+      vertical-align: middle;
+      display: inline-block;
+      height: 30px;
+      width: 5px;
+    }
+
+    .ticket-left {
+      margin-right: -5px;
+    }
+
+    .ticket-right {
+      margin-left: -5px;
+      background-position: 5px 0px;
+    }
+
+    .button-simple {
+      vertical-align: middle;
+    }
+
+  }
+
+}
+
+
+

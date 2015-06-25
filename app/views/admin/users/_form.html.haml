@@ -1,0 +1,48 @@
+= form_for [:admin, @user], :html => { :class => "form-horizontal" } do |f|
+  -if @user.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@user.errors.count} #{Russian::p(@user.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.user.sozdanie')}:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .form-group
+    = f.label :email, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.email'
+    .col-sm-9
+
+      = f.text_field :email, :class => 'form-control'
+
+  .form-group
+    = f.label :nickname, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.nickname'
+    .col-sm-9
+      
+      = f.text_field :nickname, :class => 'form-control'
+
+  .form-group
+    = f.label :money, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.money'
+    .col-sm-9
+      
+      = f.number_field :money, :class => 'form-control'
+      
+  .form-group
+    = f.label :role, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.role'
+    .col-sm-3
+
+      = f.select :role, %w(moderator admin), { prompt: 'обычный пользователь' }, :class => 'form-control'
+
+    = f.label :confirm, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.confirm'
+    .col-sm-3
+
+      = f.select :confirm, [['нет',0],['да',1]], {}, :class => 'form-control'
+
+  %hr
+  .form-group
+    .col-sm-offset-3.col-sm-8
+      = f.submit ((action_name == 'edit') ? "Обновить " : "Создать ") + t('activerecord.models.user.sozdat') + "!", :class => 'btn btn-primary'

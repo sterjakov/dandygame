@@ -1,0 +1,26 @@
+= form_for [:admin, @training_attachment], :html => { :class => "form-horizontal" } do |f|
+  -if @training_attachment.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@training_attachment.errors.count} #{Russian::p(@training_attachment.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.training_attachment.sozdanie')}:"
+      %ul
+        - @training_attachment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :training_id, :class => 'col-sm-2 control-label' do
+      = t 'activerecord.attributes.training_id'
+    .col-sm-10
+      
+      = f.number_field :training_id, :class => 'form-control'
+      
+  .form-group
+    = f.label :attachment, :class => 'col-sm-2 control-label' do
+      = t 'activerecord.attributes.attachment'
+    .col-sm-10
+      
+      = f.file_field :attachment, :class => 'form-control'
+      
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit ((action_name == 'edit') ? "Обновить " : "Создать ") + t('activerecord.models.training_attachment.sozdat') + "!", :class => 'btn btn-primary'

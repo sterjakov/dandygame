@@ -1,0 +1,140 @@
+@import "../compass/presets";
+
+.days {
+
+  margin: 5px 5px 15px;
+
+  .list {
+
+    display: none;
+    width: 100%;
+    text-align: center;
+
+    p {
+      display: inline-block;
+    }
+
+    select {
+      display: inline-block;
+
+    }
+
+  }
+
+
+
+  table {
+    width: 100%;
+
+    tr {
+
+      td {
+
+
+        &:first-child {
+        }
+
+        &:last-child {
+          width: 24px;
+        }
+
+        a {
+          position: relative;
+          z-index: 2;
+          display: block;
+          border-radius: 12px;
+          text-decoration: none;
+          width: 24px;
+          height: 24px;
+          background-color: #f4f4f4;
+          color: #a3a3a3;
+          font-family: Arial;
+          text-align: center;
+          font-size: 15px;
+          line-height: 23px;
+
+          &.selected {
+            background-color: #05cf02;
+            color: #fff;
+          }
+
+          &.selected_no_access {
+            background-color: #777777;
+            color: #fff;
+          }
+
+          &.passed {
+            background-color: #ecab57;
+            color: #fff;
+          }
+
+          .icon-flag {
+            margin-top: 6px;
+            display: inline-block;
+            background-image: image-url('icon-flag.png');
+            background-size: 11px 26px;
+            background-repeat: no-repeat;
+            background-position: 0px -13px;
+            width: 11px;
+            height: 13px;
+
+          }
+
+          &.selected .icon-flag, &.passed .icon-flag {
+            background-position: 0px 0px;
+          }
+
+          @media (-webkit-min-device-pixel-ratio: 2) {
+
+            .icon-flag {
+              background-image: image-url('@2x/icon-flag.png');
+            }
+
+          }
+
+        }
+
+        .line {
+          position: relative;
+          z-index: 1;
+          margin-top: -14px;
+          display: block;
+          border: none;
+          background-color: #f4f4f4;
+          color: red;
+          height: 3px;
+          width: 100%;
+
+          &.selected, &.passed {
+            background-color: #ecab57;
+            color: #fff;
+          }
+
+        }
+
+
+      }
+
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .days {
+
+    table {
+      display: none;
+    }
+
+    .list {
+      display: block;
+    }
+
+  }
+
+
+
+}

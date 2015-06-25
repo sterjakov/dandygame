@@ -1,0 +1,55 @@
+= link_to new_admin_comment_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.comment.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.comment.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th
+          = t 'activerecord.attributes.user_id'
+        %th
+          = t 'activerecord.attributes.description'
+        %th
+          = t 'activerecord.attributes.bad'
+        %th
+          = t 'activerecord.attributes.good'
+        %th
+          = t 'activerecord.attributes.status'
+        %th.actions
+
+    %tbody
+      - @comments.each do |comment|
+        %tr
+          
+          %td= link_to comment.user_id, [:admin,comment]
+          
+          
+          %td= comment.description
+          
+          
+          %td= comment.bad
+          
+          
+          %td= comment.good
+          
+          
+          %td= comment.status
+          
+          %td
+            = link_to edit_admin_comment_path(comment), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin,comment], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-default btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @comments, renderer: BootstrapPagination::Rails, class: 'no-margin'

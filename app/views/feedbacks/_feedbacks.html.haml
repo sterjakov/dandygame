@@ -1,0 +1,49 @@
+- if flash[:feedback]
+  %input#feedback-id.hidden{ value: flash[:feedback] }
+
+
+- @i ||= 0
+
+- feedbacks.each do |feedback|
+
+  - @i += 1
+
+  - if feedback.user.present?
+
+    %a.anchor{ name: "feedback-id_#{feedback.id}" }
+    .feedback{ data: { id: feedback.id } }
+      .header
+        = image_tag feedback.user.avatar.min
+        %a.name{ class: (feedback.user_id == @current_user.try(:id)) ? 'own-author' : nil }
+          %b
+            = feedback.user.nickname.mb_chars.capitalize
+        %p.date
+          = time_ago_in_words feedback.created_at
+          назад
+
+        - if can? :edit, feedback
+
+          .line
+
+          %a.cancel.hidden{ href: '#answer' }
+            Отмена
+
+          - if can? :edit, feedback
+            %a.edit{ href: '#answer' }
+              Редактировать
+
+          - if can? :delete, feedback
+            %a.delete{ href: training_feedback_path(@training, feedback), data: { confirm: 'Вы уверены?', method: 'delete' } }
+              Удалить
+
+      .description
+        %p
+          = feedback.description
+
+      .edit-form
+      .answer-form
+
+      - unless @i >= @feedbacks.count
+        %hr
+
+

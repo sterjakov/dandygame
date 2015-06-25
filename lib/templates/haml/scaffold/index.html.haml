@@ -1,0 +1,41 @@
+= link_to new_admin_<%= singular_table_name %>_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.<%= singular_table_name %>.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.<%= singular_table_name %>.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+<% for attribute in attributes -%>
+        %th
+          = t 'activerecord.attributes.<%= attribute.name %>'
+<% end -%>
+        %th.actions
+
+    %tbody
+      - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+        %tr
+<% attributes.each_with_index do |attribute, i| -%>
+          <% if i == 0 %>
+          %td= link_to <%= singular_table_name %>.<%= attribute.name %>, [:admin,<%= singular_table_name %>]
+          <% else %>
+          %td= <%= singular_table_name %>.<%= attribute.name %>
+          <% end %>
+<% end -%>
+          %td
+            = link_to edit_admin_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin,<%= singular_table_name %>], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-default btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @<%= plural_table_name %>, renderer: BootstrapPagination::Rails, class: 'no-margin'

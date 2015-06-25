@@ -1,0 +1,23 @@
+= link_to admin_training_attachments_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to edit_admin_training_attachment_path(@training_attachment), :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-pencil
+  Редактировать
+
+= link_to [:admin, @training_attachment], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+%h2.no-margin
+  Просмотр
+  = t 'activerecord.models.training_attachment.sozdanie'
+
+%hr
+
+%dl.dl-horizontal
+  %dt= t('activerecord.attributes.training_id') + ":"
+  %dd= @training_attachment.training_id
+  %dt= t('activerecord.attributes.attachment') + ":"
+  %dd= @training_attachment.attachment

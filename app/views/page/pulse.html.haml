@@ -1,0 +1,69 @@
+#signup.offset
+  .content
+    .offset
+
+
+      .centered
+        %h1
+          Вот как наши пользователи с каждым днем улучшают свою жизнь:
+
+      - @comments = Comment.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 100)
+
+      - @comments.each do |comment|
+
+        - @day = Day.find(comment.day_id)
+
+        %p
+          %span{ style: 'font-size: 17px;' }
+            %b
+              = time_ago_in_words comment.created_at
+              назад
+
+            | тренинг:
+
+            = link_to @day.training.name, training_path(@day.training), style: 'color: #e9441d;'
+
+            |
+            = "день: #{@day.number}"
+
+
+          %br
+          %span
+            %span{ style: 'color: #01aa15'}
+              = comment.user.nickname.mb_chars.capitalize
+              пишет:
+            = comment.description
+
+
+
+      :scss
+        .pagination {
+
+          a, p {
+            color: #0000bb;
+            font-size: 20px;
+          }
+
+          .current {
+            font-size: 21px;
+          }
+
+          .direction {
+            display: inline-block;
+          }
+        }
+
+
+      .offsetter.centered
+        = will_paginate @comments
+
+
+
+
+
+
+
+
+
+
+      .space

@@ -1,0 +1,27 @@
+= link_to admin_training_days_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to edit_admin_training_day_path(@training, @day), :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-pencil
+  Редактировать
+
+= link_to [:admin, @training, @day], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+%h2.no-margin
+  Просмотр
+  = t 'activerecord.models.day.sozdanie'
+
+%hr
+
+%dl.dl-horizontal
+  %dt= t('activerecord.attributes.training_id') + ":"
+  %dd= @day.training_id
+  %dt= t('activerecord.attributes.number') + ":"
+  %dd= @day.number
+  %dt= t('activerecord.attributes.name') + ":"
+  %dd= @day.name
+  %dt= t('activerecord.attributes.description') + ":"
+  %dd= @day.description

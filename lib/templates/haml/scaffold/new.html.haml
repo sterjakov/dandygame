@@ -1,0 +1,11 @@
+= link_to admin_<%= index_helper %>_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+%h2.no-margin
+  Создание
+  = t 'activerecord.models.<%= singular_table_name %>.sozdanie'
+
+%hr
+
+= render 'form'

@@ -1,0 +1,51 @@
+#contact.offset
+  .content
+    .offset
+
+      %h1
+        Напишите нам
+
+      %p По любым вопросам, самый быстрый способ связаться с нами – эта форма.
+
+
+      .offsetter
+        .px500
+
+          = form_for @contact, url: { controller: "contact", action: 'create' },  html: { style: 'width: 360px: margin: 0 auto;' } do |f|
+
+
+            = render partial: 'block/form_errors', locals: { model: @contact }
+
+            .row
+              = f.label :email, class: 'required'
+              = f.text_field :email, value: @current_user.try(:email)
+
+            .row
+              = f.label :theme, class: 'required'
+              = f.text_field :theme
+
+            .row
+              = f.label :description, class: 'required'
+              = f.text_area :description, class: 'noselect', rows: '10'
+
+            .row
+              = f.label :captcha, "Введите проверочный код"
+              = f.simple_captcha
+
+            = render partial: 'block/form_captcha', locals: { f: f }
+
+            .row.actions
+              = f.hidden_field :id, value: @current_user.try(:id)
+              = f.submit '', class: 'hidden'
+              %a.button.big.orange.all-width{ onclick: 'document.getElementsByTagName("form")[0].submit();' }
+                Отправить!
+
+            %p.grey.centered Внимание! Поля отмеченные * обязательны для заполенния!
+
+
+
+
+
+
+
+

@@ -1,0 +1,232 @@
+@import "compass/presets";
+
+form {
+
+  text-align: left;
+  display: block;
+  margin: $offset-top $offset-left;
+
+
+
+
+  // Ошибки
+  > ul {
+    margin: $offset-top / 2 0px;
+    margin-left: 17px;
+  }
+
+  .field_with_errors {
+
+    input, select, textarea  {
+      border: 1px solid #cc0000;
+    }
+
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 18px;
+    border: 1px solid #bfbfbf;
+    @include box-sizing(border-box);
+    cursor: text;
+  }
+
+
+  label, input {
+    display: inline-block;
+
+    &.required:before {
+      content: '*';
+    }
+  }
+
+  label {
+    text-align: left;
+    font-size: 18px;
+    line-height: 18px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
+  input {
+    padding: 5px;
+    font-size: 24px;
+
+    &:focus {
+      outline:0;
+    }
+
+    &[type="checkbox"] {
+      padding: 0px;
+      margin: 0px;
+    }
+
+  }
+
+  select {
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+    height: 40px;
+    -webkit-appearance: menulist-button;
+  }
+
+
+  .gender-field {
+
+    div {
+      margin: 7px 0px;
+    }
+
+    div:nth-child(1) {
+      float: left;
+      width: 50%;
+    }
+
+    div:nth-child(2) {
+      float: right;
+      width: 50%;
+    }
+
+  }
+
+  .checkbox {
+
+    margin-top: 10px;
+
+    input {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 4px;
+    }
+
+    p {
+      font-size: 19px;
+      vertical-align: top;
+      display: inline-block;
+      width: 90%;
+    }
+
+  }
+
+
+  .birthday-field {
+
+    text-align: center;
+
+    select:nth-child(1){
+      width: 23%;
+    }
+
+    select:nth-child(2){
+      width: 50%;
+    }
+
+    select:nth-child(3){
+      width: 24%;
+    }
+
+  }
+
+  .cities-result {
+    margin: 10px 0px 12px;
+  }
+
+
+  .radio-button {
+
+    margin: 7px 0px;
+    display: inline-block;
+
+
+    input {
+      float: left;
+      display: inline-block !important;
+    }
+
+    p {
+      width: 250px;
+      display: block;
+      float: left;
+    }
+
+  }
+
+
+
+  .row {
+    width: 100%;
+    display: inline-block;
+    line-height: 20px;
+
+    &.actions {
+      display: block;
+      margin: $offset-top 0px !important;
+      text-align: center;
+      margin: 5px ;
+    }
+
+    select {
+      width: 100%;
+    }
+
+  }
+
+}
+
+
+.px280 {
+
+  display: block;
+  width: 280px;
+  margin: 0 auto;
+
+  input[type=text], input[type=password] {
+    width: 270px;
+  }
+
+  label {
+    display: block;
+
+    &:after {
+      content: ":";
+    }
+  }
+
+  .simple_captcha {
+
+    input {
+      width: 100px;
+    }
+
+  }
+
+}
+
+
+.px500 {
+
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+
+  input[type=text], input[type=password] {
+    width: 70%;
+  }
+
+  label {
+    display: block;
+
+    &:after {
+      content: ":";
+    }
+  }
+
+  .simple_captcha {
+
+    input {
+      width: 100px;
+    }
+
+  }
+
+}

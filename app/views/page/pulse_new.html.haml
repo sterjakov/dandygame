@@ -1,0 +1,46 @@
+#signup.offset
+  .content
+    .offset
+
+
+      .centered
+        %h1
+          Общайтесь здесь:
+
+
+
+      = render partial: 'pulse/index'
+
+
+
+      :scss
+        .pagination {
+
+          a, p {
+            color: #0000bb;
+            font-size: 20px;
+          }
+
+          .current {
+            font-size: 21px;
+          }
+
+          .direction {
+            display: inline-block;
+          }
+        }
+
+
+      .offsetter.centered
+        = will_paginate @comments
+
+
+
+
+
+
+
+
+
+
+      .space

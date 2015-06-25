@@ -1,0 +1,94 @@
+@import "../compass/presets";
+
+.training-format {
+
+  .stat {
+
+    p {
+      font-size: 20px;
+
+
+      span.user-icon {
+        display: inline-block;
+        vertical-align: sub;
+        width: 27px;
+        height: 27px;
+        background-image: asset_url('icon-user-black.png');
+        background-size: 27px 27px;
+        margin-right: 3px;
+      }
+
+
+      span.text {
+        margin-top: 15px;
+      }
+
+    }
+
+  }
+
+  table {
+    margin-bottom: 5px;
+    border: 0px;
+    width: 100%;
+
+
+    .left, .right, .center {
+
+      p {
+        font-size: 20px;
+      }
+
+    }
+
+
+    .left, .right {
+      white-space: nowrap;
+      width: 1%;
+    }
+
+    .left {
+      padding-right: 3px;
+    }
+
+    .right {
+      padding-left: 3px;
+
+      p {
+        font-weight: 600;
+      }
+
+    }
+
+    .center {
+      width: 98%;
+      background-image: asset_url('bg-points-black.png');
+      background-size: 5px 3px;
+      background-repeat: repeat-x;
+      background-position: 0px 12px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+
+  .training-format {
+
+    table {
+
+      p {
+        font-size: 15px !important;
+        line-height: 20px !important;
+
+      }
+
+    }
+
+  }
+
+}
+
+
+

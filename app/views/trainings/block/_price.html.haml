@@ -1,0 +1,14 @@
+- if @current_user
+
+  .balance
+
+    %p{  class: @current_user.money > 0 ? 'blue' : nil }
+      На вашем счету
+      %span.ticket-left
+      %span.ticket
+        = @current_user.money
+      %span.ticket-right
+      = Russian.p(@current_user.money, 'день','дня','дней')
+
+    %a.button-simple.min{ href: '/shop', class: @current_user.money > 0 ? 'color-grey' : 'color-blue' }
+      Пополнить

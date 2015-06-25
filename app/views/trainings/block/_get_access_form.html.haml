@@ -1,0 +1,48 @@
+= image_tag('/images/days-with-arrow.png', width: '100%', class: 'replace-hq', 'data-src-hq' => '/images/@2x/days-with-arrow.png')
+
+%h2 Открыть 1-ый день
+
+
+
+.px280
+
+  = form_for @user, url: { controller: "auth", action: 'signup' },  html: { style: 'margin: 0 auto;' } do |f|
+
+    .offsetter-height-half
+
+      = render partial: 'block/form_errors', locals: { model: @user }
+
+    .row
+      = f.label :email, 'Введи свой e-mail'
+      = f.text_field :email
+
+    .row
+      = f.label :password, 'Придумай пароль'
+      = f.password_field :password
+
+    .row
+      = f.label :password_confirmation, t('signup.password_confirmation')
+      = f.password_field :password_confirmation
+
+    = render partial: 'block/form_captcha', locals: { f: f }
+
+    .row.actions
+      = f.hidden_field :training_id, value: @training[:id]
+      = f.hidden_field :vkontakte_id, value: ''
+      = f.submit '', class: 'hidden'
+      %a.button.big.orange.all-width{ onclick: 'yaCounter27874395.reachGoal("register"); document.getElementsByTagName("form")[0].submit();' }
+        Выслать доступ!
+
+
+    %p.grey
+      Все поля обязательны для заполенния!
+
+    .space
+
+
+
+
+
+
+
+

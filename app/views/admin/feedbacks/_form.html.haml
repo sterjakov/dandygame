@@ -1,0 +1,54 @@
+= form_for [:admin, @feedback], :html => { :class => "form-horizontal" } do |f|
+  -if @feedback.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@feedback.errors.count} #{Russian::p(@feedback.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.feedback.sozdanie')}:"
+      %ul
+        - @feedback.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :user_id, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.user_id'
+    .col-sm-9
+      
+      = f.number_field :user_id, :class => 'form-control'
+      
+  .form-group
+    = f.label :training_id, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.training_id'
+    .col-sm-9
+      
+      = f.number_field :training_id, :class => 'form-control'
+      
+  .form-group
+    = f.label :description, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.description'
+    .col-sm-9
+      
+      = f.cktext_area :description, ckeditor: {disableNativeSpellChecker: false, removePlugins: 'liststyle,tabletools,contextmenu', height: 400, toolbar: [['Source'],[ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],[ 'Link','Unlink','Anchor' ],[ 'Styles','Format','Font','FontSize' ],[ 'TextColor','BGColor' ],[ 'Image','HorizontalRule','Smiley','SpecialChar']]}
+      
+  .form-group
+    = f.label :bad, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.bad'
+    .col-sm-9
+      
+      = f.number_field :bad, :class => 'form-control'
+      
+  .form-group
+    = f.label :good, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.good'
+    .col-sm-9
+      
+      = f.number_field :good, :class => 'form-control'
+      
+  .form-group
+    = f.label :status, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.status'
+    .col-sm-9
+      
+      = f.number_field :status, :class => 'form-control'
+      
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit ((action_name == 'edit') ? "Обновить " : "Создать ") + t('activerecord.models.feedback.sozdat') + "!", :class => 'btn btn-primary'

@@ -1,0 +1,35 @@
+= link_to admin_training_days_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to [:admin,@training,@day], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+= link_to "#save", :onclick => 'document.getElementsByTagName("form")[0].submit();', :class => 'btn btn-warning pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-floppy-disk
+  Сохранить
+
+
+
+
+%h2.no-margin
+
+  - if @day[:number] > 1
+    = link_to edit_admin_training_day_path(@training, @day[:number] - 1) do
+      <
+
+  Описание
+  = t 'activerecord.models.day.sozdanie'
+  = params[:id]
+
+
+  - if @day[:number] < @training.day_count
+    = link_to edit_admin_training_day_path(@training, @day[:number] + 1) do
+      >
+
+
+
+%hr
+
+= render 'form'

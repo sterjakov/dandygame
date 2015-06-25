@@ -1,0 +1,30 @@
+= link_to admin_users_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to edit_admin_user_path(@user), :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-pencil
+  Редактировать
+
+= link_to [:admin, @user], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+%h2.no-margin
+  Просмотр
+  = t 'activerecord.models.user.sozdanie'
+
+%hr
+
+%dl.dl-horizontal
+  %dt= t('activerecord.attributes.email') + ":"
+  %dd= @user.email
+  %dt= t('activerecord.attributes.nickname') + ":"
+  %dd= @user.nickname
+  %dt= t('activerecord.attributes.money') + ":"
+  %dd= @user.money
+  %dt= t('activerecord.attributes.role') + ":"
+  %dd= @user.role
+  %dt= t('activerecord.attributes.description') + ":"
+  %dd= @user.human_confirm?
+

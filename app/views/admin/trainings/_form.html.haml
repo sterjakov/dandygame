@@ -1,0 +1,171 @@
+= form_for [:admin,@training], :html => { :class => "form-horizontal" } do |f|
+  -if @training.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@training.errors.count} #{Russian::p(@training.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.training.sozdanie')}:"
+      %ul
+        - @training.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+
+    %h4.text-center Основная информация
+
+    %hr
+
+    = f.label :name, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.name'
+    .col-sm-9
+
+      = f.text_field :name, :class => 'form-control'
+
+
+  .form-group
+
+    = f.label :alt_name, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.name'
+    .col-sm-9
+
+      = f.text_field :alt_name, :class => 'form-control'
+
+
+  .form-group
+
+    = f.label :status, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.status'
+    .col-sm-9
+
+      = f.select :status, Training::STATUS, {  }, { :class => 'form-control' }
+
+
+  .form-group
+    = f.label :name, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.category_id'
+    .col-sm-3
+
+      = f.select :category_id, Category.all.collect{ |a| [a.name, a.id] }, {prompt: 'Нет категории'},  { class: 'form-control' }
+
+    = f.label :weight, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.weight'
+    .col-sm-3
+
+      = f.select :weight, @training.get_available_weights, { selected: @training[:weight], prompt: 'Не указан' }, { :class => 'form-control' }
+
+
+  .form-group
+    = f.label :price, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.price'
+    .col-sm-3
+
+      = f.text_field :price, :class => 'form-control'
+
+    = f.label :free_day, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.free_day'
+    .col-sm-3
+
+      = f.text_field :free_day, :class => 'form-control'
+
+
+
+  .form-group
+
+    = f.label :icon, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.icon'
+    .col-sm-3
+
+      = f.select :icon, @training.training_attachments.collect{ |a| [extract_filename(a.attachment), a.attachment] }, { prompt: 'Нету', selected: @training[:icon] },  { class: 'form-control' }
+
+    = f.label :people_count, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.people_count'
+    .col-sm-3
+      = f.text_field :people_count, :class => 'form-control'
+
+
+  %hr
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center Необходимые файлы
+
+      %hr
+
+      = f.fields_for :training_attachments do |builder|
+        = render partial: 'training_attachment_fields', locals: { f: builder }
+
+      = link_to_add_fields 'trainings', t('activerecord.attributes.add_file'), f, :training_attachments
+
+      %hr
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center
+        Краткое описание тренинга
+        %span.min_description_count
+
+
+
+      %hr
+
+      = f.text_area :min_description, class: 'form-control'
+
+      %hr
+
+
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center Описание тренинга
+
+      %hr
+
+      = f.text_area :description, class: 'form-control'
+
+      %hr
+
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center Декорации HTML
+
+      %hr
+
+      = f.text_area :html, class: 'form-control'
+
+      %hr
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center Декорации CSS
+
+      %hr
+
+      = f.text_area :css, class: 'form-control'
+
+      %hr
+
+
+  .form-group
+
+    %h4.text-center Оптимизация SEO
+
+    %hr
+
+    = f.label :meta_keywords, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.meta_keywords'
+    .col-sm-9
+
+      = f.text_field :meta_keywords, :class => 'form-control'
+
+  .form-group
+
+    = f.label :meta_description, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.meta_description'
+    .col-sm-9
+
+      = f.text_area :meta_description, :class => 'form-control'
+

@@ -1,0 +1,167 @@
+@import "compass/presets";
+
+.feedback {
+
+  margin-top: 0px;
+
+  hr {
+    margin-top: 30px;
+    display: inline-block;
+    width: 100%;
+  }
+
+  p.head {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  textarea {
+    margin-bottom: 10px;
+    height: 100px;
+  }
+
+}
+
+
+
+#feedbacks {
+
+  padding-top: 10px;
+
+  .notification {
+
+    ul {
+      margin: 20px 0px 12px;
+    }
+
+  }
+
+  .anchor {
+    height: 20px;
+    width: 100%;
+    display: inline-block;
+  }
+
+  p.head {
+    margin-bottom: 15px !important;
+  }
+
+
+}
+
+
+.feedback.first {
+
+  margin: 0 $offset-left 0 $offset-left;
+
+  form {
+
+    textarea {
+      margin: 0px 0px 0px 0px !important;
+    }
+
+  }
+
+}
+
+.feedback.first {
+
+  padding-top: 20px;
+}
+
+
+.feedbacks-block {
+  overflow: auto;
+  overflow-y: hidden;
+  -ms-overflow-y: hidden;
+  padding-bottom: 14px;
+
+  .offsetter-width {
+
+    .feedback {
+      min-width: 600px;
+    }
+
+  }
+
+
+
+}
+
+.feedback {
+
+
+
+  hr {
+    background-color: #e2e2e2 !important;
+    margin: 20px 0px 0px 0px;
+  }
+
+  form {
+
+    .actions {
+      margin: 10px 0px 0px 0px;
+    }
+
+    textarea {
+      margin: 10px 0px 0px 0px;
+      height: 70px;
+    }
+
+  }
+
+  .header {
+    margin: 0px 0px 7px 0px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin: 0px 5px 0px 0px;
+      @include border-radius($radius-min);
+    }
+
+    p, a, .line {
+      display: inline-block;
+    }
+
+    .line {
+      vertical-align: middle;
+      background-color: #a6a6a6;
+      height: 20px;
+      width: 1px;
+      margin: 0px 3px;
+    }
+
+    .own-author {
+    }
+
+    a {
+      margin: 0px 3px 0px 0px;
+      font-size: 15px;
+      color: #a6a6a6;
+
+      &.name {
+        font-style: italic;
+        color: #000000;
+      }
+
+      &.cancel {
+        text-decoration: none;
+        border-bottom:1px dashed;
+      }
+
+    }
+
+    p {
+      color: #626262;
+
+    }
+
+  }
+
+  > .description {
+    font-size: 19px;
+  }
+
+}

@@ -1,0 +1,10 @@
+- if @mytraining.added? and @current_user and @mytraining.status_active?
+
+  - if @day and @mytraining.day_number == @day[:number] and @mytraining.activation_date_not_expired?
+
+    .progress{ data: { second: @mytraining.activation_date_seconds_left, training: @mytraining.training[:day_count], day: 3 } }
+      .way
+      %p
+        = @mytraining.nominative_human_current_day_number
+        день станет доступным через
+        %span.time-left

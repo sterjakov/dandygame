@@ -1,0 +1,64 @@
+- if @current_user and @comments.count > 0
+
+
+  %a{ name: 'comments' }
+
+  #comments
+
+    .content
+
+      .offset
+
+        -# if @comments.count > 0
+
+        %p.head
+          Отзывы к
+          = @day[:number].to_s + @mytraining.dative_human_number_ending(@day[:number])
+          дню
+          = "(" + @comments.count.to_s + ")"
+
+        -# else
+
+          %p.head
+            Оставьте первый комментарий!
+
+        .offsetter-width
+
+          = render partial: 'block/form_errors', locals: { model: @comment }
+
+
+        - if can? :create, Comment
+
+          -# ВНИМАНИЕ! Из этой формы берется session_key!!!
+          .comment.first.offsetter-width.hidden
+
+            = form_for [@training, @day, @comment] do |f|
+
+              -#= f.text_area :description, class: 'noselect', value: (flash[:comment_description].present?) ? flash[:comment_description] : ''
+              -#%input{ type: 'submit', class: 'hidden' }
+              -#.actions
+                %a.button.orange.min.all-width.submit
+                  Отправить комментарий!
+
+        - if @comments.count > 0
+
+          -#%br
+          -#%br
+
+          .comments-block
+
+            .offsetter-width
+
+
+              = render partial: 'comments/comments', locals: { comments: @comments }
+
+          .space
+          %br
+
+        - else
+
+          .space
+          %br
+
+
+

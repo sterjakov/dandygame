@@ -1,0 +1,111 @@
+.menu-space-min
+.offset
+
+  .catalog
+
+    = render partial: 'block/form_animated_errors', locals: { model: @order }
+
+    - if flash[:order_status] == 'good'
+
+      .notification.good
+
+        .offset
+
+          %table
+            %tr
+              %td.left
+                = image_tag('icon-thumbs-up.png', width: '46px', height: '46px')
+              %td.right
+                %p.lobster
+                  Платеж прошел успешно. Спасибо за вашу покупку!
+
+    - if flash[:order_status] == 'bad'
+
+      .notification.bad
+
+        .offset
+
+          %table
+            %tr
+              %td.left
+                = image_tag('icon-thumbs-down.png', width: '46px', height: '46px')
+              %td.right
+                %p.lobster
+                  Платеж не прошел, попробуйте еще раз!
+
+
+  #shop
+
+    .catalog
+
+      .day-info
+        %p.head
+          На вашем счету:
+          -#%span.present
+          %span
+            = @current_user[:money]
+            = Russian.p(@current_user[:money], 'день','дня','дней')
+
+
+
+      .section
+
+        %table.head
+          %tr
+            %td.left
+              %hr
+            %td.head
+              %p
+                Выберите пакет дней:
+            %td.right
+              %hr
+
+      - # Пакеты дней
+      - Order::PRICE.map do |price|
+
+        .price.place.half.px215.animation-circles-flare{ data: { id: price[:id] }}
+          .offset
+
+            .circles-flare-1
+            .circles-flare-2
+            .circles-flare-3
+
+            .top
+              .icon{ class: "day-#{price[:number]}"}
+              %p.day
+                = Russian.p(price[:number], 'день','дня','дней')
+            .bottom
+              %p.number
+                за
+                = price[:cost]
+                рублей
+
+      .clear
+
+
+      = form_for @order, url: '/shop', method: :post, html: { class: 'robokassa hidden' } do |f|
+
+        .space
+
+        = f.hidden_field :item_id, value: '2'
+
+        %a.button.orange.all-width.big.submit
+          Перейти к выбору cпособа оплаты!
+
+        .space.clear
+        .space.clear
+
+
+
+        -#      %form.robokassa.hidden{ action: 'http://test.robokassa.ru/Index.aspx', method: 'POST' }
+        -#
+        -#        %input{ type: 'hidden', name: 'MrchLogin', value: 'dandygame' }
+        -#        %input{ type: 'hidden', name: 'OutSum', value: '' }
+        -#        %input{ type: 'hidden', name: 'InvId', value: '0' }
+        -#        %input{ type: 'hidden', name: 'SignatureValue', value: '' }
+        -#
+        -#        %a.button.orange.all-width.big.submit
+        -#          Перейти к выбору cпособа оплаты!
+        -#
+        -#        .space.clear
+        -#        .space.clear

@@ -1,0 +1,101 @@
+@import "../compass/presets";
+
+
+#training {
+
+  .training-head {
+
+    margin: $offset-top $offset-left;
+
+    table {
+
+      margin: 0 auto;
+
+      a {
+        width: 63px;
+        height: 63px;
+        display: inline-block;
+      }
+
+      .arrow {
+        width: 63px;
+        height: 63px;
+        background-size: auto 63px;
+        background-image: asset_url("arrows.png");
+        background-repeat: no-repeat;
+
+      }
+
+      @media (-webkit-min-device-pixel-ratio: 2) {
+
+        .arrow {
+          background-image: image-url('@2x/arrows.png');
+        }
+
+      }
+
+
+      .left, .right {
+        width: 103px;
+      }
+
+      .left {
+
+        text-align: right;
+
+        a {
+          margin-right: 15px;
+
+          .arrow {
+            background-position: left;
+          }
+
+
+        }
+
+
+      }
+
+      .right {
+
+        a {
+          margin-left: 15px;
+
+          .arrow {
+            background-position: right;
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+  }
+
+
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+
+  #training {
+
+    .header {
+
+      table {
+
+        .arrow {
+          background-image: image-url('2x/arows.png');
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+}

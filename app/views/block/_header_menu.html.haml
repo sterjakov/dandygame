@@ -1,0 +1,88 @@
+- if can? :manage, :main_menu
+
+  #min-menu{ class: (@current_user) ? "role-#{@current_user.role}" : 'guest' }
+    .offset
+
+      .left
+
+
+        - if @current_user.role == 1
+
+          %p.logo
+            %span.lobster
+              DandyGame
+            %span.slogan
+              – становись лучше с каждым днем!
+
+        - else
+
+          %a.logo{ href: '/' }
+            %span.lobster
+              DandyGame
+            %span.slogan
+              – становись лучше с каждым днем!
+
+      .right
+
+        %a{ href: '/pulse', class: (controller_name == 'page' and action_name == 'pulse')  ? 'selected' : nil }
+          Пульс
+
+        - unless @current_user.role == 1
+
+          %a{ href: '/', class: (controller_name == 'trainings' and action_name == 'index')  ? 'selected' : nil }
+            Каталог тренингов
+
+        - if @current_user.role > 1
+
+          %a{ href: '/my_trainings', class: (controller_name == 'my_trainings') ? 'selected' : nil }
+            Мои тренинги
+
+          -#%a{ href: '/shop', class: (controller_name == 'shop') ? 'selected' : nil }
+            Магазин
+
+          %a{ href: '/settings/info', class: (controller_name == 'settings') ? 'selected' : nil }
+            Настройки
+
+        - else
+
+          %a{ href: '/signup_complete', class: (action_name == 'signup_complete')  ? 'selected' : nil }
+            Завершение регистрации
+
+        %a{ href: '/logout' }
+          Выйти
+      .clear
+
+
+  = yield :initiator
+
+- else
+
+
+  #min-menu.guest
+    .offset
+
+      .left
+        %a.logo{ href: '/' }
+          %span.lobster
+            DandyGame
+          %span.slogan
+            – становись лучше с каждым днем!
+
+      .right
+
+        %a{ href: '/pulse', class: (controller_name == 'page' and action_name == 'pulse')  ? 'selected' : nil }
+          Пульс
+
+        %a{ href: '/', class: (controller_name == 'trainings' and action_name == 'index')  ? 'selected' : nil }
+          Каталог тренингов
+
+        %a{ href: '/login', class: (action_name.match 'login') ? 'selected' : nil }
+          Вход для участников
+      .clear
+
+
+
+  = yield :initiator
+
+
+.clear

@@ -1,0 +1,11 @@
+= link_to admin_feedbacks_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+%h2.no-margin
+  Создание
+  = t 'activerecord.models.feedback.sozdanie'
+
+%hr
+
+= render 'form'

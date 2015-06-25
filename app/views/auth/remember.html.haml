@@ -1,0 +1,37 @@
+#remember.offset
+  .content
+    .offset
+
+
+
+      %h1
+        Восстановление
+        %br
+        пароля
+
+
+      = form_for @user, url: { controller: "auth", action: 'remember' }, html: { style: 'width: 360px: margin: 0 auto;', class: 'px280' } do |f|
+
+        .offsetter-height-half
+
+          = render partial: 'block/form_errors', locals: { model: @user }
+
+        .row
+          = f.label :email
+          = f.text_field :email
+
+        = render partial: 'block/form_captcha', locals: { f: f }
+
+        .row.actions
+          = f.submit '', class: 'hidden'
+          %a.button.big.orange.all-width{ onclick: 'document.getElementsByTagName("form")[0].submit();' }
+            Восставновить!
+
+
+
+
+
+
+
+
+        

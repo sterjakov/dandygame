@@ -1,0 +1,41 @@
+
+= link_to new_admin_training_attachment_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.training_attachment.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.training_attachment.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th
+          = t 'activerecord.attributes.training_id'
+        %th
+          = t 'activerecord.attributes.attachment'
+        %th.actions
+
+    %tbody
+      - @training_attachments.each do |training_attachment|
+        %tr
+          
+          %td= link_to training_attachment.training_id, [:admin,training_attachment]
+          
+          
+          %td= training_attachment.attachment
+          
+          %td
+            = link_to edit_admin_training_attachment_path(training_attachment), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin,training_attachment], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-default btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @training_attachments, renderer: BootstrapPagination::Rails, class: 'no-margin'

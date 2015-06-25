@@ -1,0 +1,36 @@
+
+.menu-space-min
+.offset
+
+  #order_create
+
+    .catalog
+
+      .section
+
+      .clear
+
+      .robokassa-form
+
+        .offset
+
+          .preloader
+
+            = image_tag 'preloader-white-big.gif'
+
+          .form.hidden
+
+            %p Заказ успешно сформирован! Нажмите на кнопку далее для того чтобы продолжить оплату!
+
+            %br
+
+            %form.robokassa{ action: 'https://auth.robokassa.ru/Merchant/Index.aspx', method: 'POST' }
+
+              %input{ type: 'hidden', name: 'MrchLogin',      value: @login }
+              %input{ type: 'hidden', name: 'OutSum',         value: @price[:cost] }
+              %input{ type: 'hidden', name: 'InvId',          value: @order[:id] }
+              %input{ type: 'hidden', name: 'SignatureValue', value: @signature }
+
+              = button_tag 'Далее!', class:'button-simple color-blue', style: 'font-size: 22px; color: #fff; padding: 4px 7px; display: block; border: none;'
+              .space.clear
+              .space.clear

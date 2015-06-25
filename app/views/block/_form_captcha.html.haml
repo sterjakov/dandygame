@@ -1,0 +1,11 @@
+- action_roll_name = "#{controller_name}_#{action_name}_request_count"
+
+- unless action_roll_name.match /edit|update|process|create/
+  - action_roll_name = "#{controller_name}_#{action_name}_process_request_count"
+
+- if session[:"#{action_roll_name}"] and session[:"#{action_roll_name}"] >= 3
+
+  .row
+    = f.label :captcha, "Введите проверочный код"
+
+  = f.simple_captcha

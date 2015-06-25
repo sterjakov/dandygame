@@ -1,0 +1,23 @@
+= link_to admin_<%= index_helper %>_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to edit_admin_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-pencil
+  Редактировать
+
+= link_to [:admin, @<%= singular_table_name %>], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+%h2.no-margin
+  Просмотр
+  = t 'activerecord.models.<%= singular_table_name %>.sozdanie'
+
+%hr
+
+%dl.dl-horizontal
+  <%- for attribute in attributes -%>
+  %dt= t('activerecord.attributes.<%= attribute.name %>') + ":"
+  %dd= @<%= singular_table_name %>.<%= attribute.name %>
+  <%- end -%>

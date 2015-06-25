@@ -1,0 +1,402 @@
+@import "../compass/presets";
+
+
+
+.catalog {
+
+  &.start-free {
+
+    z-index: 1;
+    overflow: hidden;
+
+    .place {
+
+
+      &:hover {
+        cursor: default !important;
+        border: 3px solid rgba(#fff, 0.2) !important;
+      }
+
+      .offset {
+        padding: 10px;
+      }
+
+      table {
+        margin: 0 auto;
+      }
+
+      img {
+        margin-right: 14px;
+      }
+
+      p {
+        font-size: 22px;
+      }
+
+    }
+
+
+  }
+
+
+  .place {
+
+
+    .offset {
+
+      .front {
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+
+        table {
+          text-decoration: none;
+          color: #fff;
+          margin: 0 auto;
+          padding-top: 50px;
+          width: 300px;
+          margin-top: 50px;
+
+          .left {
+
+            .logo {
+              display: inline-block;
+              width: 90px;
+              height: 90px;
+              background-size: 90px 90px;
+              margin-right: 10px;
+            }
+
+          }
+
+          .right {
+            vertical-align: middle;
+            margin-left: 20px;
+            height: 95px;
+
+            p {
+
+              .name {
+                font-family: 'Lobster';
+                font-size: 32px;
+                line-height: 20px;
+              }
+
+              .status {
+                line-height: 20px;
+                overflow: hidden;
+                margin-top: 5px;
+                display: inline-block;
+                font-family: 'Lobster';
+                font-size: 16px;
+                padding: 3px 10px 5px;
+                @include border-radius($radius-max);
+
+                &.complete {
+                  @include filter-gradient(#1564a6, #1c527f);
+                  @include background-image(linear-gradient( #1564a6, #1c527f ));
+                  border: 1px solid rgba(#fff, 0.3);
+                }
+
+                &.day {
+                  @include filter-gradient(#a1ec29, #80c90c);
+                  @include background-image(linear-gradient( #a1ec29, #80c90c ));
+
+                }
+
+              }
+
+            }
+
+          }
+
+
+        }
+
+      }
+
+      .back {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+
+
+        .name {
+          text-decoration: none;
+          color: #fff;
+          margin: 0 auto;
+          padding-top: 10px;
+          width: 100%;
+          height: 30px;
+          text-align: center;
+
+
+          .left {
+            vertical-align: top;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+
+             .logo {
+               width: 30px;
+               height: 30px;
+               background-size: 30px 30px;
+             }
+
+          }
+
+          .right {
+            height: 30px;
+            display: inline-block;
+
+             p {
+               line-height: 30px;
+               font-family: 'Lobster';
+               font-size: 16px;
+             }
+
+          }
+
+        }
+
+
+        p.min_description {
+          font-family: "Times New Roman";
+          display: inline-block;
+          padding: 10px 10px 0px 10px;
+          color: #ffffff;
+          font-size: 22px;
+          line-height: 20px;
+          height: 115px;
+        }
+
+        .info {
+          height: 28px;
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+
+          .left, .center {
+            background-image: image_url('line.png');
+            background-size: 2px 1px;
+            background-position: right;
+            background-repeat: repeat-y;
+            margin-right: 5px;
+            padding-right: 7px;
+          }
+
+          .left, .center, .right {
+            height: 100%;
+            display: inline-block;
+
+
+            .icon {
+              float: left;
+            }
+
+            p {
+              color: #fff;
+              margin: 0px 5px;
+              font-family: Arial;
+              font-size: 13px;
+              line-height: 28px;
+              float: left;
+            }
+
+          }
+
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+// Растяжка для ТРЕНИНГ БЛОКОВ
+
+@media screen and (max-width: 830px) {
+
+  .catalog {
+
+    .training.place {
+
+      .offset {
+
+        p.min_description {
+          font-size: 16px !important;
+          line-height: 14px !important;
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+}
+
+@media screen and (max-width: 780px) {
+
+  .catalog {
+
+    .place {
+
+      .offset {
+
+        .info {
+          height: 20px !important;
+          margin: 0 auto;
+
+          .icon {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-size: 20px 20px;
+          }
+
+          .left, .center {
+            margin-right: 3px;
+            padding-right: 5px;
+          }
+
+          .left, .center, .right {
+
+            p {
+              margin: 0px 3px;
+              font-size: 10px !important;
+              line-height: 20px !important;
+            }
+
+          }
+
+
+
+          .sun {
+            background-image: image_url('icon-sun.png');
+          }
+
+          .cash {
+            background-image: image_url('icon-cash.png');
+          }
+
+          .user {
+            background-image: image_url('icon-user.png');
+          }
+
+        }
+
+
+      }
+
+    }
+
+  }
+
+
+
+}
+
+@media screen and (max-width: 750px) {
+
+  .catalog {
+
+    .training.place {
+
+      .offset {
+
+
+
+        .front {
+
+          table {
+            width: 220px;
+
+            .left {
+
+              .logo {
+                width: 75px !important;
+                height: 75px !important;
+                background-size: 75px 75px !important;
+                margin-right: 10px;
+              }
+
+            }
+
+            .right {
+
+              p {
+
+                .name {
+                  font-size: 25px !important;
+                }
+
+
+              }
+
+            }
+
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .catalog {
+
+    .training.place {
+
+      .offset {
+
+        p.min_description {
+          font-size: 17px;
+          line-height: 14px;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .catalog {
+
+    .training.place {
+
+      .offset {
+
+        p.min_description {
+          font-size: 17px;
+          line-height: 17px;
+        }
+
+      }
+
+    }
+
+
+  }
+
+}
+
+
+

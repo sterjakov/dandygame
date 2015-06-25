@@ -1,0 +1,206 @@
+@import "compass/presets";
+
+.catalog {
+
+  display: block;
+  margin: 0px 10px 0px 10px;
+
+
+  .place {
+
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin: 0px 0px 10px 0px;
+    border: 3px solid rgba(#fff, 0.2);
+    overflow: hidden;
+    @include box-sizing(border-box);
+    @include border-radius($radius-max);
+
+    &.px215 {
+      height: 215px;
+    }
+
+    &.px150 {
+      height: 150px;
+    }
+
+    &.selected {
+      border-color: #ffac00 !important;
+      @include box-shadow(rgba(#ffac00, 1) 0px 0px 15px);
+    }
+
+    &.half {
+      float: left;
+      width: 49.4%;
+
+
+      &:nth-child(even) {
+        width: 49.4% !important;
+        margin-left: 1.2%;
+      }
+
+    }
+
+    &:hover {
+      border: 3px solid rgba(#fff, 0.4);
+    }
+
+    .offset {
+      margin: 5px;
+
+      .line-flare {
+        z-index: 2;
+        margin: -5px 0px 0px -274px;
+        position: absolute;
+        width: 274px;
+        height: 209px;
+        background-image: image_url('flare.png');
+        background-size: 274px 209px;
+      }
+
+      .circles-flare-1, .circles-flare-2, .circles-flare-3 {
+        opacity: 0;
+        z-index: 2;
+        margin: -12px 0px 0px -5px;
+        position: absolute;
+        width: 100%;
+        height: 220px;
+        background-size: 427px 220px;
+        background-position: center center;
+      }
+
+      .circles-flare-1 { background-image: image_url('circles-flare-1.png'); }
+      .circles-flare-2 { background-image: image_url('circles-flare-2.png'); }
+      .circles-flare-3 { background-image: image_url('circles-flare-3.png'); }
+
+    }
+
+  }
+
+  .place.show-hidden, .place.hide-hidden {
+    text-align: center;
+    border-color: rgba(#003966, 0.1);
+
+    &:hover {
+      border-color: rgba(#003966, 0.2);
+
+      p {
+        opacity: 0.7 !important;
+      }
+    }
+
+    .offset {
+
+      p {
+        padding: 5px;
+        font-size: 18px;
+        color: #fff;
+        opacity: 0.6;
+      }
+
+    }
+
+  }
+
+  .place-nothing {
+    z-index: 1;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    @include box-sizing(border-box);
+    @include border-radius($radius-max);
+    border: 3px solid rgba(#003966, 0.1);
+    overflow: hidden;
+
+    .offset {
+      text-align: center;
+      margin: 15px;
+
+      p {
+        font-size: 20px;
+        font-family: "Lobster";
+        color: rgba(#003966, 0.3);
+      }
+
+    }
+
+  }
+
+  .section {
+
+    &:last-child {
+      margin-bottom: 0px !important;
+    }
+
+    margin-bottom: 20px;
+
+    table.head {
+
+      margin: 10px 0px;
+      width: 100%;
+
+      &.empty {
+
+        hr {
+          background-color: #003966 !important;
+        }
+
+      }
+
+      hr {
+        width: 100%;
+        height: 3px;
+        border: none;
+        background-color: #fff;
+        opacity: 0.1;
+        @include border-radius(2px);
+      }
+
+      .left {
+      }
+
+      .head {
+        width: 1%;
+
+        p {
+          white-space: nowrap;
+          font-size: 18px;
+          font-family: "BadScript";
+          padding: 0px 5px;
+        }
+
+      }
+
+      .right {
+      }
+
+    }
+
+
+
+
+  }
+
+}
+
+
+// Слияние двух колонок в одну для ВСЕХ БЛОКОВ КАТАЛОГА
+
+@media screen and (max-width: 600px) {
+
+  .catalog {
+
+    .place.half, .place.half:nth-child(even) {
+      width: 100% !important;
+      margin: 0px 0px 10px !important;
+    }
+
+  }
+
+}
+

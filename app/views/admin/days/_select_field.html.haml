@@ -1,0 +1,5 @@
+- if @days.present?
+  = select_tag 'question[day_id]',
+    options_for_select(@days.map { |day| [ "День #{day.number}: #{day.name}", day.id ]}, selected: (@question.present?) ? @question.day_id : nil),
+    prompt: (@days.present?) ? nil : 'Нету дней',
+    class: 'form-control'

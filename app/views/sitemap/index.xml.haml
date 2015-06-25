@@ -1,0 +1,31 @@
+!!! XML
+%urlset{ xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' }
+
+  - @trainings.each do |training|
+
+    %url
+      %loc
+        = "http://" + request.host + training_path(training.id)
+      %lastmod
+        = training.updated_at.strftime("%Y-%m-%d")
+      %changefreq
+        weekly
+      %priority
+        1.0
+
+
+  %url
+    %loc
+      = "http://" + request.host + "/"
+    %lastmod
+      = @trainings[0][:updated_at].strftime("%Y-%m-%d")
+    %changefreq
+      weekly
+    %priority
+      0.7
+
+
+
+
+
+

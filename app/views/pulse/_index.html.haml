@@ -1,0 +1,51 @@
+- if @current_user and @comments.count > 0
+
+
+  %a{ name: 'comments' }
+
+  #comments
+
+    .content
+
+      .offset
+
+        -# if @comments.count > 0
+
+        -# else
+
+          %p.head
+            Оставьте первый комментарий!
+
+        .offsetter-width
+
+          = render partial: 'block/form_errors', locals: { model: @comment }
+
+
+        - if can? :create, Comment
+
+          -# ВНИМАНИЕ! Из этой формы берется session_key!!!
+          .comment.first.offsetter-width.hidden
+
+
+        - if @comments.count > 0
+
+          -#%br
+          -#%br
+
+          .comments-block
+
+            .offsetter-width
+
+
+              = render partial: 'pulse/pulse', locals: { comments: @comments }
+
+          .space
+          %br
+
+        - else
+
+          .space
+          %br
+
+
+

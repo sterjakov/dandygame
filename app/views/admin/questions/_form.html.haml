@@ -1,0 +1,79 @@
+= form_for [:admin, @question], :html => { :class => "form-horizontal" } do |f|
+  -if @question.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@question.errors.count} #{Russian::p(@question.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.question.sozdanie')}:"
+      %ul
+        - @question.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.selectable.parent
+
+    %h4.text-center Информация о вопросе
+
+    %hr
+
+    = f.label :training_id, :class => 'col-sm-3 control-label' do
+      Тренинг
+    .col-sm-9
+      = select_tag :training_id,
+        options_for_select(Training.all.map { |training| [training.name, training.id] }, selected: (@question.day) ? @question.day.training.id : nil),
+        prompt: 'Выберите тренинг',
+        class: 'form-control',
+        data: { url: admin_training_day_url(':id', :select_field) }
+
+  .form-group.selectable.child
+    = f.label :day_id, :class => 'col-sm-3 control-label' do
+      День
+    .col-sm-9
+
+      = render partial: 'admin/days/select_field'
+
+  .form-group
+    = f.label :status, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.status'
+    .col-sm-9
+      = f.select :status, Question::STATUS, {}, class: 'form-control'
+
+
+  %h4.text-center Вопрос
+
+  %hr
+
+  .form-group
+    = f.label :user_id, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.user_id'
+    .col-sm-9
+
+      = f.text_field :user_id, class: 'form-control'
+
+  .form-group
+    = f.label :description, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.description'
+    .col-sm-9
+
+      = f.text_area :description, rows: '7', class: 'form-control'
+
+  %h4.text-center Ответ
+
+  %hr
+
+  .form-group
+    = f.label :answer_author_id, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.answer_author_id'
+    .col-sm-9
+      = f.text_field :answer_author_id, value: @current_user[:id],  class: 'form-control'
+
+  .form-group
+    = f.label :answer_description, :class => 'col-sm-3 control-label' do
+      = t 'activerecord.attributes.answer_description'
+    .col-sm-9
+      = f.text_area :answer_description, rows: 10, class: 'form-control'
+
+  %hr
+
+
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      = f.hidden_field :reviewed, :class => 'form-control'
+      = f.submit ((action_name == 'edit') ? "Обновить " : "Создать ") + t('activerecord.models.question.sozdat') + "!", :class => 'btn btn-primary'

@@ -1,0 +1,149 @@
+@import "compass/presets";
+
+
+#comments {
+
+  padding-top: 10px;
+
+  .notification {
+
+    ul {
+      margin: 20px 0px 12px;
+    }
+
+  }
+
+  p.head {
+    margin-bottom: 15px !important;
+  }
+
+  .anchor {
+    height: 20px;
+    width: 100%;
+    display: inline-block;
+  }
+
+
+}
+
+
+.comment.first {
+
+  margin: 0 $offset-left 0 $offset-left;
+
+  form {
+
+    textarea {
+      margin: 0px 0px 0px 0px !important;
+    }
+
+  }
+
+}
+
+.comment.first {
+
+  padding-top: 20px;
+}
+
+
+
+.comments-block {
+  overflow: auto;
+  overflow-y: hidden;
+  -ms-overflow-y: hidden;
+  padding-bottom: 14px;
+
+  .offsetter-width {
+
+    .comment {
+      min-width: 600px;
+    }
+
+  }
+
+
+
+}
+
+.comment {
+
+
+
+  hr {
+    background-color: #e2e2e2 !important;
+    margin: 20px 0px 0px 0px;
+  }
+
+  form {
+
+    .actions {
+      margin: 10px 0px 0px 0px;
+    }
+
+    textarea {
+      margin: 10px 0px 0px 0px;
+      height: 70px;
+    }
+
+  }
+
+  .header {
+    margin: 0px 0px 7px 0px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin: 0px 5px 0px 0px;
+      @include border-radius($radius-min);
+    }
+
+    p, a, .line {
+      display: inline-block;
+    }
+
+    .line {
+      vertical-align: middle;
+      background-color: #a6a6a6;
+      height: 20px;
+      width: 1px;
+      margin: 0px 3px;
+    }
+
+    .own-author {
+    }
+
+    .admin {
+      color: #0162dd;
+    }
+
+    a {
+      margin: 0px 3px 0px 0px;
+      font-size: 15px;
+      color: #a6a6a6;
+
+      &.name {
+        font-style: italic;
+        color: #000000;
+      }
+
+      &.cancel {
+        text-decoration: none;
+        border-bottom:1px dashed;
+      }
+
+    }
+
+    p {
+      color: #626262;
+
+    }
+
+  }
+
+  > .description {
+    font-size: 19px;
+  }
+
+}

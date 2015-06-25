@@ -1,0 +1,30 @@
+#admin-bar
+
+  = @result
+
+  %ul.left
+    %li
+      - if controller_path.split('/').first  == 'admin'
+        - if controller_name == 'trainings' and action_name == 'edit'
+          = link_to "Смотреть", training_path
+        - elsif controller_name == 'days' and action_name == 'edit'
+          = link_to "Смотреть", training_day_path
+        - elsif
+          = link_to "На сайт", :root
+      - elsif controller_name == 'days' and action_name == 'show'
+        = link_to "Изменить", edit_admin_training_day_path
+      - elsif controller_name == 'trainings' and action_name == 'show'
+        = link_to "Изменить", edit_admin_training_path
+      - else
+        = link_to "В админку", admin_trainings_path
+
+  %ul.right
+    %li
+      = link_to "Тренинги", admin_trainings_path
+    %li
+      = link_to "Категории", admin_categories_path
+    %li
+      = link_to "Пользователи", admin_users_path
+    %li
+      = link_to "Статистика", admin_trainings_path
+

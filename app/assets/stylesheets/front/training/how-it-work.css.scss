@@ -1,0 +1,86 @@
+@import "../compass/presets";
+
+.how-it-work {
+
+  background-image: asset_url('bg-squared.jpg');
+  background-repeat: repeat;
+  background-size: 10px 10px;
+
+
+  .blue {
+    color: #3c53ff !important;
+  }
+
+  .grey {
+    color: #494949 !important;
+  }
+
+  .red {
+    color: #fb0b32 !important;
+  }
+
+  .orange {
+    color: #ff8a3c !important;
+  }
+
+
+  .shadow-up, .shadow-down {
+    width: 100%;
+    height: 58px;
+    background-size: 1px 58px;
+  }
+
+  .shadow-up {
+    background-image: asset_url('bg-squared-shadow-up.png');
+  }
+
+  .shadow-down {
+    background-image: asset_url('bg-squared-shadow-down.png');
+  }
+
+  p {
+    max-width: 550px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Lobster" !important;
+  }
+
+  p:last-child {
+    margin-bottom: 0px !important;
+  }
+
+  .icon {
+    margin: 0 auto;
+    width: 74px;
+    height: 46px;
+    background-size: 76px 46px;
+
+    &.crown {
+      background-image: asset_url('icon-crown.png');
+    }
+
+    &.email-send {
+      background-image: asset_url('icon-email-send.png');
+    }
+
+    &.glasses {
+      background-image: asset_url('icon-glasses.png');
+    }
+
+    &.timer {
+      background-image: asset_url('icon-timer.png');
+    }
+
+  }
+
+
+
+}
+
+
+
+
+

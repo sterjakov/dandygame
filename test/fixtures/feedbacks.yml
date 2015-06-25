@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  training_id: 1
+  description: MyText
+  bad: 1
+  good: 1
+  status: 1
+
+two:
+  user_id: 1
+  training_id: 1
+  description: MyText
+  bad: 1
+  good: 1
+  status: 1

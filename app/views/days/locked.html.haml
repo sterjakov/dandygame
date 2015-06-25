@@ -1,0 +1,20 @@
+= render partial: 'trainings/parallax'
+
+.offset
+
+  #training
+    .content
+      .offset
+
+        = render partial: "trainings/block/initiator"
+
+        = render partial: 'trainings/teaser'
+
+        =# render partial: 'trainings/ads/google_up'
+
+        %p
+          Этот день вам пока не доступен. Пройдите все предыдущие дни для того чтобы открыть его.
+
+        = render partial: "trainings/actions"
+
+  = render partial: 'trainings/ads/google_down'

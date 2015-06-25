@@ -1,0 +1,16 @@
+.offsetter.centered
+
+  %ul.menu
+    %li
+      %a{ href: '/settings/info', class: (action_name.match /info/i) ? 'selected' : nil }
+        Личная информация
+    %li
+      %a{ href: '/settings/password', class: (action_name.match /password/i) ? 'selected' : nil }
+        Смена пароля
+    %li
+      %a{ href: '/settings/email', class: (action_name.match /email/i) ? 'selected' : nil }
+        Смена e-mail
+
+    %li
+      %a{ href: '/settings/notify', class: (action_name.match /notify/i) ? 'selected' : nil }
+        Уведомления

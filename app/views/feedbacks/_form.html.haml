@@ -1,0 +1,30 @@
+- if @mytraining.added? and @day and @current_user and @mytraining.status == 0 and @mytraining.activation_date_expired?
+
+  -if @day.number == @training.day_count and @mytraining.day_number == @training.day_count
+
+    .feedback_for_final.feedback_counter
+
+      %p
+        Напиишите отзыв о тренинге для того чтобы завершить ее, минимум 90 символов.
+        %span.symbol_counter.orange
+          Осталось
+          %span.number
+            90
+          символов.
+        %span.ready.green.hidden
+          Готово!
+
+
+      = form_for [@training, @feedback] do |f|
+
+        .offsetter-height-half
+
+          = render partial: 'block/form_errors', locals: { model: @feedback }
+
+        = f.text_area :description, class: 'noselect', value: (flash[:feedback].present?) ? flash[:feedback] : ''
+
+        %input{ type: 'submit', class: 'hidden' }
+
+        .actions
+          %a.button.blue.big.all-width.submit
+            Завершить тренинг

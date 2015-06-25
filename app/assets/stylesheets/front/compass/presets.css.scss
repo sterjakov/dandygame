@@ -1,0 +1,19 @@
+@import "compass";
+
+@include font-face("BadScript", font-url("bad-script.ttf"));
+@include font-face("Lobster", font-url("lobster.ttf"));
+
+$blue: #1b507c;
+$white: #ffffff;
+
+$footer-height: 100px;
+
+$radius-max: 7px;
+$radius-min: 4px;
+
+a:hover {
+  text-decoration: none;
+}
+
+$offset-left: 100px;
+$offset-top: 40px;

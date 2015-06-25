@@ -1,0 +1,43 @@
+
+- unless controller_name == 'trainings' and @current_user == nil
+
+  %a.anchor-training-actions{ name: 'training-actions'}
+  .training-actions
+
+    .offsetter
+      %hr
+
+    .offsetter
+
+      = render partial: 'block/form_errors', locals: { model: @current_user } if @current_user
+      = render partial: 'block/form_errors', locals: { model: @mytraining }   if @mytraining
+
+    .offsetter.action-button
+
+      -# Авторизовать пользователя
+      = render partial: 'trainings/block/login'
+
+      -# Перейти ко дню по номеру
+      = render partial: 'trainings/block/go_to_day_number'
+
+      -# Начать тренинг
+      = render partial: 'trainings/block/start_training'
+
+      -# Открыть новый день
+      = render partial: 'trainings/block/open_new_day'
+
+      -# Таймер следующего дня
+      = render partial: 'trainings/block/next_day_timer'
+
+      -# Оставить отзыв и завершить тренинг
+      = render partial: 'feedbacks/form'
+
+      -# Тренинг завершен
+      = render partial: 'trainings/block/final'
+
+    -#.offsetter.action-button
+
+      -# Колличество дней на счету
+      = render 'trainings/block/price'
+
+    .space

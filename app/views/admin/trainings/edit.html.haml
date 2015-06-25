@@ -1,0 +1,36 @@
+= link_to admin_trainings_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to admin_training_days_path(@training), class: 'btn btn-default btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  дни
+
+= link_to [:admin, @training], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+= link_to "#save", :onclick => 'document.getElementsByTagName("form")[0].submit();', :class => 'btn btn-warning pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-floppy-disk
+  Сохранить
+
+
+
+
+
+%h2.no-margin
+
+  = link_to edit_admin_training_path(@next_training) do
+    <
+
+  Описание
+  = t 'activerecord.models.training.sozdanie'
+  = params[:id]
+
+
+  = link_to edit_admin_training_path(@prev_training) do
+    >
+
+%hr
+
+= render 'form'

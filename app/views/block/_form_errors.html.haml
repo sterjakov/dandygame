@@ -1,0 +1,33 @@
+- if model.errors.any?
+
+  .notification
+    %ul
+      - model.errors.full_messages.each do |msg|
+        %li{ class: 'error' }= msg
+
+- model_name = model.class.table_name
+
+
+- if flash[:errors] and flash[:action] == model_name
+  .notification
+    %ul
+      - flash[:errors].each do |msg|
+        %li{ class: 'error' }= msg + '!'
+
+- if flash[:error] and flash[:action] == model_name
+  .notification
+    %ul
+      %li{ class: 'error' }
+        = flash[:error]
+
+- if flash[:success] and flash[:action] == model_name
+  .notification
+    %ul
+      %li{ class: 'success' }
+        = flash[:success]
+
+- if flash[:notice] and flash[:action] == model_name
+  .notification
+    %ul
+      %li{ class: 'success' }
+        = flash[:notice]

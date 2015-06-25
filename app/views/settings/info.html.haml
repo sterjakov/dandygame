@@ -1,0 +1,125 @@
+#info.offset
+  .content
+    .offset
+
+
+      %h1
+        Настройки
+
+      = render partial:'block/settings_menu'
+
+
+      .offsetter
+
+        .px280
+
+          = form_for @current_user, method: :patch, url: { controller: "settings", action: 'info_process' },  html: { style: 'width: 360px: margin: 0 auto;', class: 'px280' } do |f|
+
+            .offsetter-height-half
+
+              = render partial: 'block/form_errors', locals: { model: @current_user }
+
+            .row
+              = f.label :nickname, class: 'required'
+              = f.text_field :nickname
+
+            .row
+              = f.label :birthday, class: 'required'
+              .birthday-field
+                = f.date_select :birthday, :start_year => 100.years.ago.year, end_year: Date.today.year, prompt: { day: 'День', month: 'Месяц', year: 'Год'  }
+
+            .row
+              = f.label :gender, class: 'required'
+
+              = f.select :gender, [ ['Мужской', 0], ['Женский', 1 ] ], prompt: true
+
+            -#.row
+              = f.label :country, class: 'required'
+              = f.select :country, ['Обновите страницу'], {},  { data: { id: @current_user[:country] } }
+
+            -#.row.city-field.hidden
+              = f.label :city, class: 'required'
+              = f.select :city, ['Обновите страницу'],  {},  { data: { id: @current_user[:city] } }
+
+              .city-find.hidden
+
+                = text_field_tag :city, nil, placeholder: 'Поиск города', class: 'city-find-text'
+
+                .cities-result
+
+                %a.grey.cancel{ href: '#cancel'}
+                  Отмена
+
+                %hr
+
+            .row{ style: "margin-bottom: 7px;"}
+              = f.label :avatar
+              = f.hidden_field :crop
+
+              .avatar
+
+                %a.button.grey.min.all-width.image-load{ href: '#avatar_load', class: (@current_user[:avatar]) ? 'hidden' : nil }
+                  Загрузить и обрезать
+                  %br
+                  %span{ style: 'font:  14px "Times";'}
+                    От 200*200 пикселей
+
+                .image-crop.centered{ class: (@current_user[:avatar]) ? nil : 'hidden' }
+                  - if @current_user[:avatar]
+                    = image_tag @current_user.avatar
+                    = f.check_box :remove_avatar, class: 'hidden'
+                    %a.button.grey.min.all-width.remove-avatar{ href: '#avatar_load' }
+                      Удалить аватар
+
+                  - else
+                    %img
+
+                    %a.button.grey.min.all-width.cancel{ href: '#avatar_load' }
+                      Отмена
+
+                = f.file_field :avatar, class: 'hidden'
+            .clear
+
+            -#.row
+              = f.label :avatar
+
+              .avatar
+
+                %a.button.grey.min.all-width.image-load{ href: '#avatar_load' }
+                  Загрузить и обрезать
+                  %br
+                  %span{ style: 'font:  14px "Times";'}
+                    От 200*200 пикселей
+
+
+                .image-crop.centered
+
+                  %img
+
+                  %a.button.grey.min.all-width.cancel{ href: '#avatar_load' }
+                    Отмена
+
+                = f.file_field :avatar, class: 'hidden'
+
+            -#.row
+
+              .checkbox
+
+                = f.check_box :subscribe, checked: true
+                %p да, я хочу подписаться на ежемесячную рассылку (Обещаем писать редко и по делу)
+
+            -# if session[:"#{action_name}_request_count"] and session[:"#{action_name}_request_count"] >= 3
+
+              .row
+                = f.label :captcha, "Введите проверочный код"
+                = f.simple_captcha
+
+            = render partial: 'block/form_captcha', locals: { f: f }
+
+            .row.actions
+              = f.submit '', class: 'hidden'
+              %a.button.big.orange.all-width{ onclick: 'document.getElementsByTagName("form")[0].submit();' }
+                Сохранить!
+
+
+            %p.grey.centered Внимание! Поля отмеченные * обязательны для заполенния!

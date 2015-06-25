@@ -1,0 +1,115 @@
+:css
+  body { background-color: #1b507c; }
+
+%table{ cellpadding: 0, cellspacing: 0, width: '100%', valign: 'top', style: 'border-collapse:collapse; background-color: #1b507c;'}
+  %tr
+    %td{ style: 'width: 10px;' }
+      = image_tag 'blank.gif', width: "10"
+    %td
+
+      %table{ cellpadding: 0, cellspacing: 0, width: '600', align: 'center', style: 'border-collapse:collapse;'}
+        %tr
+          %td
+            = link_to :root, style: 'text-decoration:none;', target: '_blank' do
+              = image_tag 'email/head.jpg', width: '100%'
+        %tr
+          %td
+            %table{ cellpadding: 0, cellspacing: 0, width: '100%', align: 'center', style: 'border-collapse:collapse;'}
+              %tr
+                %td{ style: 'width: 7px;' }
+                  = image_tag 'email/corner-top-left.jpg', width: '7px'
+                %td{ style: 'width: 586px; background-color: #FFFFFF;'}
+                  = image_tag 'blank.gif'
+                %td{ style: 'width: 7px;' }
+                  = image_tag 'email/corner-top-right.jpg', width: '7px'
+
+
+              %tr
+                %td{ style: 'width: 7px; background-color: #FFFFFF;' }
+                %td{ style: 'width: 586px; background-color: #FFFFFF;'}
+
+                  %table{ cellpadding: 0, cellspacing: 0, width: '100%', align: 'left', style: 'border-collapse:collapse; background-color: #FFFFFF;'}
+                    %tr
+                      %td{ colspan: 3, style: 'width: 100%; height: 20px;' }
+                        = image_tag 'blank.gif'
+                    %tr
+                      %td{ style: 'width: 25px;' }
+                      %td{ style: 'width: 537px; text-align: center;' }
+                      %td{ style: 'width: 25px;' }
+                    %tr
+                      %td{ style: 'width: 25px;  height: 15px;' }
+                      %td{ style: 'width: 537px; height: 15px;' }
+
+                        %table{ cellpadding: 0, cellspacing: 0, width: '100%', align: 'left', style: 'border-collapse:collapse; background-color: #FFFFFF;'}
+                          %tr
+                            %td{ style: 'text-align: center;' }
+                              %span{ style: 'font-family: "Times"; font-size: 34px; color: #123a5c;' }
+                                Активация аккаунта
+                          %tr
+                            %td{ style: 'height: 25px;'}
+                              = image_tag 'blank.gif', height: 25
+
+                          %tr
+                            %td
+                              %span{ style: 'font-family: "Times"; font-size: 20px; color: #123a5c;' }
+                                Здравствуйте! Для того чтобы подтвердить регистрацию на нашем сайте нажмите кнопку активировать.
+
+
+                          %tr
+                            %td{ style: 'height: 25px;'}
+                              = image_tag 'blank.gif', height: 25
+
+                          %tr
+                            %td
+                              = link_to :root, style: 'text-decoration:none;', target: '_blank' do
+                                = image_tag 'email/activate.jpg', width: 532, height: 55
+
+                          %tr
+                            %td{ style: 'height: 25px;'}
+                              = image_tag 'blank.gif', height: 25
+
+
+                          %tr
+                            %td{ style: 'height: 25px;'}
+                              %span{ style: 'font-family: "Times"; font-size: 20px; color: #123a5c;' }
+                                Либо просто проигнорируйте это письмо если вы считаете что оно было отправлено вам по ошибке.
+                                                                                          
+
+                          %tr
+                            %td{ style: 'height: 25px;'}
+                              = image_tag 'blank.gif', height: 25
+
+
+
+
+                      %td{ style: 'width: 25px;  height: 15px;' }
+                    %tr
+                      %td{ style: 'width: 25px;' }
+                      %td{ style: 'width: 546px; text-align: left;' }
+                      %td{ style: 'width: 25px;' }
+
+
+
+                    %tr
+                      %td{ colspan: 3, style: 'width: 100%; height: 20px;' }
+                        = image_tag 'blank.gif'
+
+
+
+                %td{ style: 'width: 7px; background-color: #FFFFFF;' }
+
+              %tr
+                %td{ style: 'width: 7px;' }
+                  = image_tag 'email/corner-bottom-left.jpg', width: '7px'
+                %td{ style: 'width: 586px; background-color: #FFFFFF;'}
+                  = image_tag 'blank.gif'
+                %td{ style: 'width: 7px;' }
+                  = image_tag 'email/corner-bottom-right.jpg', width: '7px'
+        %tr
+          %td
+            = image_tag 'email/foot.jpg', width: '100%'
+
+
+    %td{ style: 'width: 10px;' }
+      = image_tag 'blank.gif', width: "10"
+

@@ -1,0 +1,57 @@
+
+- url = (!@day.number) ? admin_training_days_path(@training) : admin_training_day_path(@training, @day[:number])
+
+= form_for @day, url: url, :html => { :class => "form-horizontal" } do |f|
+  -if @day.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{@day.errors.count} #{Russian::p(@day.errors.count, "ошибка найдена","ошибки найдено","ошибок найдено")} при сохранении #{t('activerecord.models.day.sozdanie')}:"
+      %ul
+        - @day.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :training_id, :class => 'col-sm-2 control-label' do
+      = t 'activerecord.attributes.training_id'
+    .col-sm-10
+
+      = f.select :training_id, Training.all.collect{ |a| [a.name, a.id] }, { prompt: 'Нет тренинга', selected: params[:training_id] },  { class: 'form-control' }
+
+  .form-group
+    = f.label :number, :class => 'col-sm-2 control-label' do
+      = t 'activerecord.attributes.number'
+    .col-sm-10
+      
+      = f.text_field :number, :class => 'form-control'
+      
+  .form-group
+    = f.label :name, :class => 'col-sm-2 control-label' do
+      = t 'activerecord.attributes.name'
+    .col-sm-10
+      
+      = f.text_field :name, :class => 'form-control'
+
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center Необходимые файлы
+
+      %hr
+
+      = f.fields_for :day_attachments do |builder|
+        = render partial: 'day_attachment_fields', locals: { f: builder }
+
+      = link_to_add_fields 'days', t('activerecord.attributes.add_file'), f, :day_attachments
+
+      %hr
+
+  .form-group
+
+    .col-sm-12
+      %h4.text-center Описание тренинг дня
+
+      %hr
+
+      = f.text_area :description, { class: 'form-control' }
+

@@ -1,0 +1,45 @@
+- if @mytraining.new? and @current_user
+
+
+
+
+  - if @training[:free_day] >= 1
+
+    = form_for @mytraining, url: { controller: 'my_trainings', action: 'create' } do |f|
+
+      = f.hidden_field :training_id, value: @training[:id]
+
+      %a.button.with-icon.orange.big.all-width.submit{ href: '#start_training' }
+        %span
+
+          Открыть 1-ый день тренинга
+          %span.pressed.free
+            Бесплатно!
+
+  - else
+
+
+    - if @current_user.have_money?
+
+      = form_for @mytraining, url: { controller: 'my_trainings', action: 'create' } do |f|
+
+        = f.hidden_field :training_id, value: @training[:id]
+
+        %a.button.with-icon.orange.big.all-width.submit{ href: '#start_training' }
+          %span
+
+            Открыть 1-ый день тренинга
+            %span.pressed.pay
+              Платно!
+
+    - else
+
+      .alert
+
+        %p
+          %span.red
+            Внимание!
+          %span
+            На вашем счету недостаточно дней для того чтобы начать этот тренинг! Пожалуйста пополните его для того чтобы продолжить.
+          = link_to 'Пополнить счет дней.' ,'/shop', class: 'blue'
+

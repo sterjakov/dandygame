@@ -1,0 +1,26 @@
+= render partial: 'trainings/parallax'
+
+.offset
+
+  #training
+    .content
+      .offset
+
+        = render partial: "trainings/block/initiator"
+
+        = render partial: 'trainings/teaser'
+
+        =# render partial: 'trainings/ads/google_up'
+
+        %h1= @day[:name]
+
+        = @day[:description].html_safe
+
+        =# render partial: 'trainings/ads/google_down'
+
+        = render partial: "trainings/actions"
+
+
+  = render partial: 'trainings/ads/google_down'
+
+  = render partial: 'comments/index'

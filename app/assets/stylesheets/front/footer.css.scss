@@ -1,0 +1,87 @@
+@import "compass/presets";
+
+#footer {
+
+  padding-top: 15px;
+
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+  overflow: hidden;
+
+  .offset {
+    margin: 0 10px;
+  }
+
+
+
+  .left, .right {
+    height: 60px;
+    display: inline-block;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  p, a {
+    display: inline-block !important;
+    color: #fff;
+
+    &.author {
+      opacity: 0.5;
+    }
+  }
+
+  a {
+    font-size: 18px;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.selected {
+      @include text-shadow(rgba(#fff, 1) 0px 0px 15px);
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+
+  #footer {
+
+    p, a {
+      margin-top: 0px !important;
+    }
+
+    .left,  {
+      height: 25px !important;
+    }
+
+    .right {
+      height: 40px !important;
+    }
+
+    .left {
+      width: 100%;
+      float: none !important;
+    }
+
+    .right {
+      vertical-align: top !important;
+      float: none !important;
+    }
+
+  }
+
+
+
+}
+

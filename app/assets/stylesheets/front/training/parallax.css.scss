@@ -1,0 +1,39 @@
+@import "front/compass/presets";
+
+#parallax {
+  float: left;
+  position: relative;
+  z-index: 1;
+  margin-top: -80px;
+  margin-bottom: -50px;
+  width: 100%;
+  height: 120px + 372px;
+  background-repeat: no-repeat;
+  background-position: top;
+
+}
+
+.parallax {
+  float: left;
+  height: 200%;
+  width: 200%;
+  margin-left: -50%;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: absolute;
+  display: inline-block;
+
+
+}
+
+.l1 { z-index: 10; }
+.l2 { z-index: 9;  }
+.l3 { z-index: 8;  }
+.l4 { z-index: 7;  }
+.l5 { z-index: 6;  }
+.l6 { z-index: 5;  }
+.l7 { z-index: 4;  }
+.l8 { z-index: 3;  }
+.l9 { z-index: 2;  }
+
+

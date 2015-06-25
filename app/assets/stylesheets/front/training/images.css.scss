@@ -1,0 +1,21 @@
+@import "../compass/presets";
+
+#training {
+
+  > .content {
+
+    > .offset {
+
+      img:first-child {
+        @include border-top-radius($radius-max);
+      }
+
+      li img, > img, p img {
+        width: 100%;
+      }
+
+    }
+
+  }
+
+}

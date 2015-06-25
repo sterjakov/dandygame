@@ -1,0 +1,41 @@
+@import "compass/presets";
+
+.error-404-bg {
+  background: #000000 asset_url('error-404.jpg') no-repeat center center fixed;
+  @include background-size('cover')
+}
+
+.error-404 {
+
+  .teaser {
+    height: 330px;
+
+
+    .centered {
+      margin-top: 270px;
+      vertical-align: middle;
+
+      h1 {
+        vertical-align: middle;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+        font-family: "Times New Roman";
+      }
+
+      p {
+        vertical-align: middle;
+        text-align: center;
+        font-size: 25px;
+        color: #fff;
+        font-family: "Times New Roman";
+      }
+
+    }
+
+
+
+  }
+
+
+}

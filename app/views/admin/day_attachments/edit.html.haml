@@ -1,0 +1,20 @@
+= link_to admin_day_attachments_path, :class => 'btn btn-default pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-list-alt
+  Назад
+
+= link_to [:admin, @day_attachment], :class => 'btn btn-primary pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-eye-open
+  Смотреть
+
+= link_to [:admin, @day_attachment], data: { confirm: 'Вы уверены?' }, method: :delete, :class => 'btn btn-danger pull-right margin-l-5' do
+  %span.glyphicon.glyphicon-trash
+  Удалить
+
+
+%h2.no-margin
+  Редактирование
+  = t 'activerecord.models.day_attachment.sozdanie'
+
+%hr
+
+= render 'form'

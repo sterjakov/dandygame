@@ -1,0 +1,63 @@
+.training-format
+
+  .offsetter
+
+    %h2
+      Формат тренинга
+
+    %table
+
+      %tr
+        %td.left
+          %p
+            Продолжительность
+        %td.center
+        %td.right
+          %p
+            = @training.day_count
+            = Russian.p(@training.day_count, 'день', 'дня', 'дней')
+
+
+    - if @training.free_day > 0
+
+      %table
+
+        %tr
+          %td.left
+            %p
+              В подарок
+          %td.center
+          %td.right
+            %p
+              = Russian.p(@training.free_day, 'первый', 'первые', 'первые')
+              = @training.free_day
+              = Russian.p(@training.free_day, 'день', 'дня', 'дней')
+
+    %table
+
+      %tr
+        %td.left
+          %p
+            - if @training.free_day > 0
+              Стоимость продолжения
+            - else
+              Стоимость тренинга
+        %td.center
+        %td.right
+          %p
+            1200 рублей
+
+
+    - if @training.people_count > 15
+
+      %table
+
+        %tr
+          %td.left
+            %p
+              Нас уже
+          %td.center
+          %td.right
+            %p
+              = @training.people_count
+              = Russian.p(@training.people_count, 'участник','участника','участников')

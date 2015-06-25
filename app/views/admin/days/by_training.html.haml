@@ -1,0 +1,50 @@
+= link_to new_admin_day_path, :class => 'btn btn-primary pull-right' do
+  %span.glyphicon.glyphicon-plus
+  Создать
+  = t 'activerecord.models.day.sozdat'
+
+%h2.no-margin
+  Каталог
+  = t 'activerecord.models.day.catalog'
+
+%hr
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th
+          = t 'activerecord.attributes.training_id'
+        %th
+          = t 'activerecord.attributes.number'
+        %th
+          = t 'activerecord.attributes.name'
+        %th
+          = t 'activerecord.attributes.description'
+        %th.actions
+
+    %tbody
+      - @days.each do |day|
+        %tr
+          
+          %td= link_to day.training_id, [:admin, day]
+          
+          
+          %td= day.number
+          
+          
+          %td= day.name
+          
+          
+          %td= day.description
+          
+          %td
+            = link_to edit_admin_day_path(day), class: 'btn btn-xs btn-primary' do
+              %span.glyphicon.glyphicon-pencil
+              Редактировать
+
+            = link_to [:admin,day], data: { confirm: 'Вы уверены?' }, method: :delete,  class: 'btn btn-default btn-xs btn-danger' do
+              %span.glyphicon.glyphicon-trash
+              Удалить
+
+  = will_paginate @days, renderer: BootstrapPagination::Rails, class: 'no-margin'

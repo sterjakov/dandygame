@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /signup
+Disallow: /login
+Disallow: /admin
+Disallow: /logout
+Disallow: /settings
+Disallow: /shop
+Disallow: /my_trainings
+Disallow: /trainings/*/days
+
+Sitemap: http://dandygame.ru/sitemap.xml
+Host: dandygame.ru
